@@ -1,21 +1,29 @@
-import React from 'react'
-import Li from '../components/Li'
-import {HiOutlineHome} from 'react-icons/hi';
+import React from "react";
+import Li from "../components/Li";
+import {
+  HiOutlineChat,
+  HiOutlineHome,
+  HiOutlineInformationCircle,
+  HiOutlineLogout,
+  HiOutlineSupport,
+  HiSupport,
+  HiOutlinePhone
+} from "react-icons/hi";
 
 const Nav = () => {
   return (
-    <nav className='w-[16vw] h-[32vw] bg-[#13192B] rounded-md flex justify-center items-center overflow-hidden'>
-      <ul className='flex items-start flex-col justify-evenly w-[100%] h-[100%]'>
-        <Li data={"Home"} href={'/'} icon={<HiOutlineHome/>}/>
-        <Li data={"Chat"} href={'/chat'} icon={<HiOutlineHome/>}/>
-        <Li data={"AboutUS"} href={'/'} icon={<HiOutlineHome/>}/>
-        <Li data={"ContactUs"} href={'/'} icon={<HiOutlineHome/>}/>
-        <Li data={"DevCom"} href={'/'} icon={<HiOutlineHome/>}/>
-        <Li data={"Support"} href={'/'} icon={<HiOutlineHome/>}/>
-        <Li data={"Logout"} href={'/'} icon={<HiOutlineHome/>}/>
+    <nav className="w-[16vw] h-fit bg-white rounded-md flex justify-center items-center">
+      <ul className="flex items-start flex-col py-5 px-3 gap-2 w-[100%] h-[100%]">
+        <Li data={"HOME"} href={"/"} icon={<HiOutlineHome />} />
+        <Li data={"CHAT"} href={"/chat"} icon={<HiOutlineChat />} />
+        <Li data={"ABOUTUS"} href={"/"} icon={<HiOutlineInformationCircle />} />
+        <Li data={"CONTACTUS"} href={"/"} icon={<HiOutlinePhone />} />
+        <Li data={"DEV COM"} href={"/"} icon={<HiSupport />} />
+        <Li data={"SUPPORT"} href={"/"} icon={<HiOutlineSupport />} />
+        <Li data={"LOGOUT"} href={"/"} icon={<HiOutlineLogout />} />
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
