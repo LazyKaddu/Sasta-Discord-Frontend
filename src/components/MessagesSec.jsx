@@ -1,11 +1,6 @@
-import React, { useEffect } from 'react';
-import Message from './Message';
-import { useState } from 'react';
-import io from 'socket.io-client';
-
-
-
-const socket = io('https://localhost:4000');
+import React from 'react'
+import Message from './Message'
+import axios from 'axios'
 
 const MessagesSec = ({userId, channelId}) => {
   const [Data, setData] = useState([]);
