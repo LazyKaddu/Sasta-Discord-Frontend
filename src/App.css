@@ -1,3 +1,14 @@
 .nick {
     color: #bbb1eb
 }
+
+.MorphismShadow{
+    border: 2px solid rgb(10, 16, 32);
+    transition: 0.3s ease-in-out;
+}
+
+.MorphismShadow:hover{
+    box-shadow: 0 0 50px rgb(7, 12, 24);
+    border: none;
+}
+

@@ -33,7 +33,7 @@ const Signup = ({isLogin, changeState}) => {
   return (
     <div className="min-h-screen w-full bg-slate-900 grid place-items-center">
       <form
-        className="w-[30vw] h-fit py-3 px-6 flex flex-col bg-[#2d2d2d] 
+        className="w-[30vw] h-fit py-3 px-6 flex flex-col  bg-slate-900 MorphismShadow
         items-center gap-4 rounded-2xl text-white"
         action=""
         onSubmit={SubmitChange}
@@ -44,7 +44,7 @@ const Signup = ({isLogin, changeState}) => {
         </h1>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
-            UserName <span className="text-red-500 text-md">*</span>
+            UserName {!Username&&<span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
@@ -55,7 +55,7 @@ const Signup = ({isLogin, changeState}) => {
         </div>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
-            E-mail <span className="text-red-500 text-md">*</span>
+            E-mail {!Email&&<span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
@@ -66,7 +66,7 @@ const Signup = ({isLogin, changeState}) => {
         </div>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
-            Password <span className="text-red-500 text-md">*</span>
+            Password {!Password&&<span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"

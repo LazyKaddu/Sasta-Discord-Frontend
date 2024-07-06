@@ -2,7 +2,7 @@ import React from "react";
 import UserName from "./UserName";
 import Nav from "./Nav";
 
-const MainBody = ({ data }) => {
+const MainBody = ({ data ,userName}) => {
   return (
     <>
       {/* header */}
@@ -11,7 +11,7 @@ const MainBody = ({ data }) => {
       <div className="h-[84vh] flex">
         {/* sidebar */}
         <div className="flex flex-col w-[22vw] justify-evenly items-center min-h-fit bg-[#cdc3fc]">
-          <UserName username={"Aashish"} />
+          <UserName username={userName} />
           <Nav />
         </div>
         {/* chatbox */}
