@@ -4,14 +4,17 @@ import Login from './components/Login';
 
 const LoginSignup = () => {
     const [isLogin, setisLogin] = useState(false);
+
     const changeState = (e)=>{
         setisLogin(!isLogin);
     }
 
   return (
     <div>
-      {isLogin?<Login/>:<Signup/>}
-      <button onClick={changeState}>{isLogin?"Signup":"Login"}</button>
+      { isLogin
+        ? <Login isLogin={isLogin} changeState={changeState}/>
+        : <Signup isLogin={isLogin} changeState={changeState}/>
+      }
     </div>
   )
 }
