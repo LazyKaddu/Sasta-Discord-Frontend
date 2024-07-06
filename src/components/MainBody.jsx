@@ -2,7 +2,7 @@ import React from "react";
 import UserName from "./UserName";
 import Nav from "./Nav";
 
-const MainBody = ({ data }) => {
+const MainBody = ({ data ,userName}) => {
   return (
     <div className="w-full h-screen bg-[#5865F2]">
       {/* header */}
