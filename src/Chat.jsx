@@ -34,7 +34,7 @@ const Chat = () => {
 )
 
   return (
-    <MainBody data={<ChatSection />} userName={"local host se lana hai"} open={false}/>
+    <MainBody data={<ChatSection userId={userId}/>} userName={"local host se lana hai"} open={false}/>
   )
 }
 
