@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const Login = () => {
+const Login = ({isLogin, changeState}) => {
     const [Username, setUsername] = useState("");
     const [Password, setPassword] = useState("");
     const [Error, setError] = useState("");
@@ -28,14 +28,56 @@ const Login = () => {
 
 
   return (
-    <form action="" onSubmit={SubmitChange} method="post">
-        <label>UserName</label>
-        <input value={Username} type='text' placeholder='Nikhil' onChange={changeUsername}/>
-        <label>Password</label>
-        <input value={Password} type='password' placeholder='Tmkc@123' onChange={changePassword}/>
-        <button type='submit'>Login</button>
-        <p>{Error}</p>
-    </form>
+    <div className="min-h-screen w-full bg-slate-900 grid place-items-center">
+      <form
+        className="w-[30vw] h-fit py-3 px-6 flex flex-col bg-[#2d2d2d] 
+        items-center gap-4 rounded-2xl text-white"
+        action=""
+        onSubmit={SubmitChange}
+        method="post"
+      >
+        <div className='flex flex-col items-center'>
+          <h1 className="text-3xl font-semibold tracking-wide py-2 mt-4 opacity-90">
+            Welcome back!
+          </h1>
+          <h3 className='font-light opacity-90 tracking-wide'>We're so excited to see you again!</h3>
+        </div>
+        <div className="w-full flex flex-col gap-2">
+          <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
+            UserName <span className="text-red-500 text-md">*</span>
+          </label>
+          <input
+            className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
+            value={Username}
+            type="text"
+            onChange={changeUsername}
+          />
+        </div>
+        <div className="w-full flex flex-col gap-2">
+          <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
+            Password <span className="text-red-500 text-md">*</span>
+          </label>
+          <input
+            className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
+            value={Password}
+            type="password"
+            onChange={changePassword}
+          />
+        </div>
+        <button
+          className="w-full px-5 py-4 bg-indigo-500 hover:bg-indigo-600
+           text-white rounded font-semibold tracking-wide"
+          type="submit"
+        >
+          Login
+        </button>
+        <button onClick={changeState} className="w-full py-1 mb-3 text-blue-500 tracking-wide text-start">
+          {isLogin
+           ?  <p><span className='text-zinc-400'>Need an account?</span> Register</p> 
+           : "Already have an account?"} 
+        </button>
+      </form>
+    </div>
   )
 }
 
