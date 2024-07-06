@@ -12,7 +12,9 @@ const Li = ({ data, href, icon }) => {
       hover:bg-[#e5dff9] w-[87%] p-2 rounded-lg cursor-pointer"
       onClick={Navigate}
     >
-      <span className="text-2xl bg-[#e5dff9] p-1 rounded-lg opacity-85">{icon}</span>
+      <span className="text-2xl bg-[#e5dff9] p-1 rounded-lg opacity-85">
+        {icon}
+      </span>
       <span className="line-clamp-1">{data}</span>
     </li>
   );
