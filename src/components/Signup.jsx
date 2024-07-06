@@ -7,6 +7,7 @@ const Signup = () => {
     const [Password, setPassword] = useState("");
     const [Email, setEmail] = useState("");
     const [Error, setError] = useState("");
+    const [ProfilePic, setProfilePic] = useState(null);
     const navigate = useNavigate();
 
     const changeUsername = (e)=>{
@@ -18,10 +19,13 @@ const Signup = () => {
     const changeEmail = (e)=>{
         setEmail(e.target.value)
     }
+    const updateProfilePic = (e)=>{
+        setProfilePic(e.target.files[0])
+    }
     const SubmitChange = (e)=>{
         e.preventDefault();
         axios.post('/signing',
-            {Username,Password,Email})
+            {Username,Password,Email,ProfilePic})
             .then((response)=>{
                 navigate("/home")
             }).catch((error)=>{
@@ -38,6 +42,8 @@ const Signup = () => {
         <input value={Email} type='text' placeholder='aashishnegi0000@gmail.com' onChange={changeEmail}/>
         <label>Password</label>
         <input value={Password} type='password' placeholder='Tmkc@123' onChange={changePassword}/>
+        <label>Upload</label>
+        <input type='file' onChange={updateProfilePic}/>
         <button type='submit'>Signup</button>
     </form>
   )

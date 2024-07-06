@@ -2,14 +2,14 @@ import React from 'react'
 import Message from './Message'
 import axios from 'axios'
 
-const MessagesSec = ({MessageId, Username, Password}) => {
+const MessagesSec = ({MessageId, Userid}) => {
   const [Data, setData] = useState([]);
   const [Error, setError] = useState("");
   axios.get('./api/messages',{
     params:{
-      id:MessageId,
-      username:Username,
-      password:Password,
+      messageid:MessageId,
+      username:Userid,
+
     }
   }).then((response)=>{
     setData(response.data);
@@ -18,7 +18,9 @@ const MessagesSec = ({MessageId, Username, Password}) => {
   })
   return (
     <div>
-      <Message/>
+      {Data.map(({sender,message,time})=>{
+        <Message sender={sender} message={message} time={time}/>
+      })}
       <p>{Error}</p>
     </div>
   )
