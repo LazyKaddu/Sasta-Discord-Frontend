@@ -1,8 +1,10 @@
 import React from "react";
 import UserName from "./UserName";
 import Nav from "./Nav";
+import Cookies from "js-cookie";
 
-const MainBody = ({ data ,userName}) => {
+const MainBody = ({ data }) => {
+  const userName = Cookies.get('userName');
   return (
     <div className="w-full h-screen bg-[#5865F2]">
       {/* header */}
@@ -16,7 +18,7 @@ const MainBody = ({ data ,userName}) => {
       <div className="h-[84vh] flex">
         {/* sidebar */}
         <div className="flex flex-col w-[22vw] rounded-r-lg justify-evenly items-center min-h-fit bg-[#afb3e0]">
-          <UserName username={"Aashish"} />
+          <UserName userName={userName} />
           <Nav />
         </div>
         {/* chatbox */}
@@ -25,8 +27,8 @@ const MainBody = ({ data ,userName}) => {
         </div>
       </div>
       {/* footer */}
-      <div className="w-[100vw] h-[7vh] bg-[#5865F2]">
-        Sasta footer
+      <div className="w-[100vw] h-[7vh] bg-[#5865F2] flex justify-center items-center">
+        <p>sasta footer</p>
       </div>
     </div>
   );

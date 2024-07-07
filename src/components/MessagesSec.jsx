@@ -1,6 +1,10 @@
-import React from 'react'
-import Message from './Message'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import Message from './Message';
+import axios from 'axios';
+import io from '../socket';
+
+const socket = io;
+
 
 const MessagesSec = ({userId, channelId}) => {
   const [Data, setData] = useState([]);
@@ -29,11 +33,11 @@ const MessagesSec = ({userId, channelId}) => {
   },[channelId,userId])
 
   return (
-    <div>
+    <div className='h-[70vh] w-[60vw] border-gray-950'>
       {Data.map((item,index)=>{
         return (<Message key={index} sender={item.sender} message={item.message} time={item.time}/>)
       })}
-      <p>{Error}</p>
+      {Error && <p>{Error}</p>}
     </div>
   )
 }
