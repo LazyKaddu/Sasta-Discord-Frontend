@@ -1,8 +1,6 @@
 import React from 'react';
 import MainBody from './components/MainBody';
-import MessagesSec from './components/MessagesSec';
-import Chatbox from './components/Chatbox';
-import Title from './components/Title';
+import AboutSection from './components/AboutSection';
 
 
 const ChatSection = ()=>{
@@ -17,7 +15,7 @@ const ChatSection = ()=>{
 
 const Chat = () => {
   return (
-    <MainBody data={<ChatSection/>} open={false}/>
+    <MainBody data={<AboutSection/>} open={false}/>
   )
 }
 
