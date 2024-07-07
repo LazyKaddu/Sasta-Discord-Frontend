@@ -1,1 +1,18 @@
-anup())}abort(){this.cleanup()}}if(M.requestsCount=0,M.requests={},"undefined"!=typeof document)if("function"==typeof attachEvent)attachEvent("onunload",W);else if("function"==typeof addEventListener){addEventListener("onpagehide"in T?"pagehide":"unload",W,!1)}function W(){for(let t in M.requests)M.requests.hasOwnPr
+import React from 'react'
+import MainBody from './components/MainBody'
+
+const HomeElem = () =>{
+    return(
+        <>
+            <p>Hello bro !! welcome to home page</p>
+        </>
+    )
+}
+
+const Home = () => {
+  return (
+    <MainBody data={<HomeElem/>}/>
+  )
+}
+
+export default Home
