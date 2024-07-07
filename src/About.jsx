@@ -3,20 +3,10 @@ import MainBody from './components/MainBody';
 import AboutSection from './components/AboutSection';
 
 
-const ChatSection = ()=>{
-    return(
-        <>
-        <Title title={'GroupChat-1'}/>
-        <MessagesSec/>
-        <Chatbox/>
-        </>
-    )
-}
-
-const Chat = () => {
+const About = () => {
   return (
     <MainBody data={<AboutSection/>} open={false}/>
   )
 }
 
-export default Chat
+export default About
