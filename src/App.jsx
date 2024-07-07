@@ -4,6 +4,7 @@ import Home from "./Home";
 import Chat from "./Chat";
 import About from "./About";
 import LoginSignup from "./Login-Signup";
+import './App.css';
 
 function App() {
   return (

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+
 
 
 const Login = ({isLogin, changeState}) => {
@@ -20,7 +22,9 @@ const Login = ({isLogin, changeState}) => {
         axios.post('/loging',
             {Username,Password})
             .then((response)=>{
-                navigate("/home")
+              Cookies.set("userId",response.data);
+              Cookies.set("userName",Username);
+              navigate("/home");
             }).catch((error)=>{
                 setError(error);
             })
@@ -71,6 +75,7 @@ const Login = ({isLogin, changeState}) => {
         >
           Login
         </button>
+        {!Error&&<p className='text-red-600'>{Error}</p>}
         <button onClick={changeState} className="w-full py-1 mb-3 text-blue-500 tracking-wide text-start">
           {isLogin
            ?  <p><span className='text-zinc-400'>Need an account?</span> Register</p> 

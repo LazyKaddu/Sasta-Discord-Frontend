@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import io from 'socket.io-client';
+import io from '../socket';
 
-const socket = io('https://localhost:4000');
+const socket = io;
 
 const Chatbox = ({userId,channelId}) => {
     const [message, setmessage] = useState('');
@@ -18,8 +18,9 @@ const Chatbox = ({userId,channelId}) => {
 
     }
   return (
-    <form onSubmit={submit} method="get">
-    <input type="text" name="chatbox" id="chatbox" value={message} placeholder='start a convo...' onChange={changeData} onKeyDown={submit} className='w-[98%] h-[6.5%] rounded m-4 p-4 text-[1vw] border-2 border-blue-400'/>
+    <form onSubmit={submit} method="get" className='flex items-center gap-2 bg-sky-50 border-blue-400 w-[98%] h-[7%] rounded m-4 text-[1vw] border-2'>
+    <input type="text" name="chatbox" id="chatbox" value={message} placeholder='start a convo...' onChange={changeData} className='w-[97%] h-[100%] p-4 bg-transparent FocusOn' autoComplete='off'/>
+    <button type='submit' className='text-blue-800'>-&gt;</button>
     </form>
   )
 }

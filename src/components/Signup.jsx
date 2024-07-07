@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Signup = ({isLogin, changeState}) => {
+const Signup = ({ isLogin, changeState }) => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [Email, setEmail] = useState("");
@@ -44,7 +44,8 @@ const Signup = ({isLogin, changeState}) => {
         </h1>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
-            UserName {!Username&&<span className="text-red-500 text-md">*</span>}
+            UserName{" "}
+            {!Username && <span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
@@ -55,7 +56,7 @@ const Signup = ({isLogin, changeState}) => {
         </div>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
-            E-mail {!Email&&<span className="text-red-500 text-md">*</span>}
+            E-mail {!Email && <span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
@@ -66,7 +67,8 @@ const Signup = ({isLogin, changeState}) => {
         </div>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
-            Password {!Password&&<span className="text-red-500 text-md">*</span>}
+            Password{" "}
+            {!Password && <span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
@@ -83,14 +85,18 @@ const Signup = ({isLogin, changeState}) => {
           Continue
         </button>
         <div className="w-full h-fit text-xs">
-          <span className="opacity-55">By registering, you agree to Discord's</span>
-          <span className="text-[#67adf8] opacity-90"> Terms of Service</span> <span className="opacity-55">and</span>
+          <span className="opacity-55">
+            By registering, you agree to Discord's
+          </span>
+          <span className="text-[#67adf8] opacity-90"> Terms of Service</span>{" "}
+          <span className="opacity-55">and</span>
           <span className="text-[#67adf8] opacity-90"> Privacy Policy</span>.
         </div>
-        <button onClick={changeState} className="w-full py-2 mb-3 text-blue-500 tracking-wide text-start">
-          {isLogin
-           ? "Create Account"
-           : "Already have an account?"} 
+        <button
+          onClick={changeState}
+          className="w-full py-2 mb-3 text-blue-500 tracking-wide text-start"
+        >
+          {isLogin ? "Create Account" : "Already have an account?"}
         </button>
       </form>
     </div>

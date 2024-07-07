@@ -1,11 +1,23 @@
 import React from 'react';
 import MainBody from './components/MainBody';
-import AboutSection from './components/AboutSection';
+import MessagesSec from './components/MessagesSec';
+import Chatbox from './components/Chatbox';
+import Title from './components/Title';
 
+
+const ChatSection = ()=>{
+    return(
+        <>
+        <Title title={'GroupChat-1'}/>
+        <MessagesSec/>
+        <Chatbox/>
+        </>
+    )
+}
 
 const Chat = () => {
   return (
-    <MainBody data={<AboutSection/>} open={false}/>
+    <MainBody data={<ChatSection/>} open={false}/>
   )
 }
 

@@ -4,7 +4,7 @@ import MessagesSec from './components/MessagesSec';
 import Chatbox from './components/Chatbox';
 import Title from './components/Title';
 import axios from 'axios';
-
+import Cookies from 'js-cookie';
 
 const ChatSection = (userId,channelId,chanelName)=>{
 
@@ -18,23 +18,10 @@ const ChatSection = (userId,channelId,chanelName)=>{
 }
 
 const Chat = () => {
-
-  const [Chats, setChats] = useState([]);
-  const [Error, setError] = useState(null)
-  axios.get("./api/channels",{
-    parms:{
-      userId:userId,
-    }
-  }).then((response)=>{
-    setChats(response.data)
-  }
-  ).catch((error)=>{
-    setError(error);
-  }
-)
-
+  const userId = Cookies.get('userId');
+  
   return (
-    <MainBody data={<ChatSection />} userName={"local host se lana hai"} open={false}/>
+    <MainBody data={<ChatSection userId={userId}/>} userName={"local host se lana hai"} open={false}/>
   )
 }
 
