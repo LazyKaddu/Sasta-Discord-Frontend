@@ -2,8 +2,12 @@ import React from "react";
 import UserName from "./UserName";
 import Nav from "./Nav";
 import Cookies from "js-cookie";
+import ChannelSection from "./ChannelSection";
 
-const MainBody = ({ data }) => {
+const MainBody = ({ data, open}) => {
+  const styles = {
+    width:'5.5vw'
+  }
   const userName = Cookies.get('userName');
   return (
     <div className="w-full h-screen bg-[#5865F2]">
@@ -18,8 +22,15 @@ const MainBody = ({ data }) => {
       <div className="h-[84vh] flex">
         {/* sidebar */}
         <div className="flex flex-col w-[22vw] rounded-r-lg justify-evenly items-center min-h-fit bg-[#afb3e0]">
-          <UserName userName={userName} />
-          <Nav />
+          
+          <div className="flex items-end justify-between gap-2">
+          <div className="flex flex-col items-center justify-evenly gap-4 h-fit">
+          
+          {open?<UserName userName={userName} />:<UserName userName={userName} styles={styles}/>}
+          {open?<Nav/>:<Nav styles={styles}/>}
+          </div>
+          {!open&&<ChannelSection/>}
+          </div>
         </div>
         {/* chatbox */}
         <div className="flex flex-col w-[78vw] bg-[#afb3e0] rounded-l-lg overflow-hidden border-l-8 border-[#5865F2]">

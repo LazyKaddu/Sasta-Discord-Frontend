@@ -19,20 +19,7 @@ const ChatSection = (userId,channelId,chanelName)=>{
 
 const Chat = () => {
   const userId = Cookies.get('userId');
-  const [Chats, setChats] = useState([]);
-  const [Error, setError] = useState(null)
-  axios.get("./api/channels",{
-    parms:{
-      userId:userId,
-    }
-  }).then((response)=>{
-    setChats(response.data)
-  }
-  ).catch((error)=>{
-    setError(error);
-  }
-)
-
+  
   return (
     <MainBody data={<ChatSection userId={userId}/>} userName={"local host se lana hai"} open={false}/>
   )
