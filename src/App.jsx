@@ -5,6 +5,7 @@ import Chat from "./Chat";
 import About from "./About";
 import LoginSignup from "./Login-Signup";
 import './App.css';
+import Support from './Support';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/chat" element={<Chat />} />
         <Route path='/about' element={<About/>}/>
+        <Route path='/support' element={<Support/>}/>
         {/*<Route path='/devcom' element={<devcom/>}/> */}
       </Routes>
     </Router>

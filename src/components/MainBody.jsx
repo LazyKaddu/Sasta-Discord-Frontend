@@ -28,16 +28,16 @@ const MainBody = ({ data, open }) => {
           <div className="flex items-end justify-between gap-2">
             <div className="flex flex-col items-center justify-evenly gap-4 h-fit">
               {/* USER'S PROFILE */}
-              {!userName ? (
+              {open ? (
                 <UserName userName={userName} />
               ) : (
                 <UserName userName={userName} styles={styles} />
               )}
               {/* SIDEBAR */}
-              {!userName ? <Nav /> : <Nav styles={styles} />}
+              {open ? <Nav /> : <Nav styles={styles} />}
             </div>
             {/* CHANNEL SECTION */}
-            {userName && <ChannelSection />}
+            {!open && <ChannelSection />}
           </div>
         </div>
         {/* chatbox */}

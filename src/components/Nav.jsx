@@ -52,7 +52,7 @@ const Nav = ({ styles }) => {
         />
         <Li data={"CONTACTUS"} href={"/"} icon={<HiOutlinePhone />} />
         <Li data={"DEV COM"} href={"/"} icon={<HiSupport />} />
-        <Li data={"SUPPORT"} href={"/"} icon={<HiOutlineSupport />} />
+        <Li data={"SUPPORT"} href={"/support"} icon={<HiOutlineSupport />} />
         <Li
           data={"LOGOUT"}
           href={''}
