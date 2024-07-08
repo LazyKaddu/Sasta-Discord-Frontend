@@ -4,32 +4,40 @@ import Nav from "./Nav";
 import Cookies from "js-cookie";
 import ChannelSection from "./ChannelSection";
 
-const MainBody = ({ data, open}) => {
+const MainBody = ({ data, open }) => {
   const styles = {
-    width:'5.5vw'
-  }
-  const userName = Cookies.get('userName');
+    width: "5.5vw",
+  };
+  const userName = Cookies.get("userName");
   return (
     <div className="w-full h-screen bg-[#5865F2]">
       {/* header */}
       <div className="w-[100vw] h-[9vh] flex justify-start">
         <div className="h-full w-[20vw] ">
           <a href="/home">
-          <img className="w-full h-full" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6257d23c5fb25be7e0b6e220_Open%20Source%20Projects%20_%20Discord-7.svg" /></a>
+            <img
+              className="w-full h-full"
+              src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6257d23c5fb25be7e0b6e220_Open%20Source%20Projects%20_%20Discord-7.svg"
+            />
+          </a>
         </div>
       </div>
       {/* main */}
       <div className="h-[84vh] flex">
-        {/* sidebar */}
         <div className="flex flex-col w-[22vw] rounded-r-lg justify-evenly items-center min-h-fit bg-[#afb3e0]">
-          
           <div className="flex items-end justify-between gap-2">
-          <div className="flex flex-col items-center justify-evenly gap-4 h-fit">
-          
-          {open?<UserName userName={userName} />:<UserName userName={userName} styles={styles}/>}
-          {open?<Nav/>:<Nav styles={styles}/>}
-          </div>
-          {!open&&<ChannelSection/>}
+            <div className="flex flex-col items-center justify-evenly gap-4 h-fit">
+              {/* USER'S PROFILE */}
+              {!userName ? (
+                <UserName userName={userName} />
+              ) : (
+                <UserName userName={userName} styles={styles} />
+              )}
+              {/* SIDEBAR */}
+              {!userName ? <Nav /> : <Nav styles={styles} />}
+            </div>
+            {/* CHANNEL SECTION */}
+            {userName && <ChannelSection />}
           </div>
         </div>
         {/* chatbox */}

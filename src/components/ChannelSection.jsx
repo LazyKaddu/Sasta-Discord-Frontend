@@ -7,18 +7,18 @@ const ChannelSection = () => {
   const userId = Cookies.get("userId");
   const [Chats, setChats] = useState([]);
   const [Error, setError] = useState(null);
-  axios
-    .get("./api/channels", {
-      parms: {
-        userId: userId,
-      },
-    })
-    .then((response) => {
-      //setChats(response.data)
-    })
-    .catch((error) => {
-      setError(error);
-    });
+  // axios
+  //   .get("./api/channels", {
+  //     params: {
+  //       userId: userId,
+  //     },
+  //   })
+  //   .then((response) => {
+  //     //setChats(response.data)
+  //   })
+  //   .catch((error) => {
+  //     setError(error);
+  //   });
 
   return (
     <div className="h-[98%] overflow-auto rounded p-4 w-[10vw] bg-slate-50">

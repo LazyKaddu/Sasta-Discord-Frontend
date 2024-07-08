@@ -3,10 +3,10 @@ import MainBody from './components/MainBody';
 import AboutSection from './components/AboutSection';
 
 
-const Chat = () => {
+const About = () => {
   return (
     <MainBody data={<AboutSection/>} open={true}/>
   )
 }
 
-export default Chat
+export default About

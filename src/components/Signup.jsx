@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Signup = ({ isLogin, changeState }) => {
-  const [Username, setUsername] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [Error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -18,12 +19,18 @@ const Signup = ({ isLogin, changeState }) => {
   const changeEmail = (e) => {
     setEmail(e.target.value);
   };
+  const setCookies = data => {
+    Cookies.set("userId",data.user_id);
+    Cookies.set("userName", username);
+    navigate("/home");
+  }
   const SubmitChange = (e) => {
     e.preventDefault();
     axios
-      .post("/signing", { Username, Password, Email })
+      .post("http://localhost:4000/api/user/register", { username, email, password })
       .then((response) => {
-        navigate("/home");
+        console.log(response.data);
+        response.data.success? setCookies(response.data) : setError(response.data.error);
       })
       .catch((error) => {
         setError(error);
@@ -39,28 +46,33 @@ const Signup = ({ isLogin, changeState }) => {
         onSubmit={SubmitChange}
         method="post"
       >
-        <h1 className="text-3xl font-semibold tracking-wide py-2 mt-4 opacity-90">
-          Create an account
-        </h1>
+        <div className="pt-2 mt-4 flex flex-col items-center">
+          <h1 className="text-3xl font-semibold tracking-wide opacity-90">
+            Create an account
+          </h1>
+          <h3 className="font-semibold mt-2 text-red-500 text-center opacity-90 tracking-wide">
+            {Error}
+          </h3>
+        </div>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
             UserName{" "}
-            {!Username && <span className="text-red-500 text-md">*</span>}
+            {!username && <span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
-            value={Username}
+            value={username}
             type="text"
             onChange={changeUsername}
           />
         </div>
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
-            E-mail {!Email && <span className="text-red-500 text-md">*</span>}
+            E-mail {!email && <span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
-            value={Email}
+            value={email}
             type="text"
             onChange={changeEmail}
           />
@@ -68,11 +80,11 @@ const Signup = ({ isLogin, changeState }) => {
         <div className="w-full flex flex-col gap-2">
           <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
             Password{" "}
-            {!Password && <span className="text-red-500 text-md">*</span>}
+            {!password && <span className="text-red-500 text-md">*</span>}
           </label>
           <input
             className="text-lg px-3 py-2 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
-            value={Password}
+            value={password}
             type="password"
             onChange={changePassword}
           />
