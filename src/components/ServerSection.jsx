@@ -21,7 +21,7 @@ const ServerSection = ({ allServers }) => {
   //   });
 
   return (
-    <div className="h-full w-fit flex flex-col gap-1">
+    <div className="h-full flex flex-col items-center gap-1 p">
       {allServers.map((server, idx) => {
         return <ServersList server={server} key={idx} />;
       })}

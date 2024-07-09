@@ -62,20 +62,22 @@ const MainBody = ({ data, open }) => {
                 setCreateServer={setCreateServer}
               />
             </div>
-            <div className="flex justify-center gap-3 w-[85%] py-1">
+            <div className="flex justify-center gap-3 w-full py-1">
               {/* SIDEBAR */}
-              <div className={allServers.length === 0 ? "w-full" : "w-[20%]"}>
-                {allServers.length === 0 ? <Nav /> : <Nav styles={styles} />}
+              <div className={allServers.length === 0 ? "w-full" : "min-w-fit"}>
+                {allServers.length === 0 ? <Nav styles={undefined} /> : <Nav styles={styles} />}
               </div>
               <div
                 className={
                   allServers.length === 0
                     ? "hidden"
-                    : "w-[65%] p-1 overflow-y-auto rounded bg-slate-300 flex flex-col gap-1"
+                    : " p-1 rounded bg-slate-300 w-full"
                 }
               >
                 {/* CHANNEL SECTION */}
-                {allServers && <ServerSection allServers={allServers} />}
+                {allServers.length > 0 && (
+                  <ServerSection allServers={allServers} />
+                )}
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { HiOutlineUser, HiOutlineMenu } from "react-icons/hi";
 const UserName = ({ image, userName, styles, createServer, setCreateServer }) => {
   return (
     <div
-      className="flex justify-center gap-2 text-2xl items-center bg-white w-[75%] py-4 mt-3 rounded-lg"
+      className="flex justify-center gap-2 text-2xl items-center bg-white w-full py-4 mt-3 rounded-lg"
       style={styles}
     >
       {/* <img

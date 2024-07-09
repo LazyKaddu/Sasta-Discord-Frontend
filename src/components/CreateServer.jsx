@@ -33,7 +33,7 @@ function CreateServerForm({
 
   return (
     <>
-      <div className="size-fit absolute top-[45vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="size-fit z-[3] absolute top-[45vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <form
           onSubmit={handleCreateServer}
           method="post"
