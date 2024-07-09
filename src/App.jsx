@@ -4,7 +4,8 @@ import Home from "./Home";
 import Chat from "./Chat";
 import About from "./About";
 import LoginSignup from "./Login-Signup";
-import Cookies from 'js-cookie';
+import './App.css';
+import Support from './Support';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/chat" element={<Chat />} />
         <Route path='/about' element={<About/>}/>
+        <Route path='/support' element={<Support/>}/>
         {/*<Route path='/devcom' element={<devcom/>}/> */}
       </Routes>
     </Router>

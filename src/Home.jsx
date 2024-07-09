@@ -11,7 +11,7 @@ const HomeElem = () =>{
 
 const Home = () => {
   return (
-    <MainBody data={<HomeElem/>}/>
+    <MainBody data={<HomeElem/>} open={true}/>
   )
 }
 
