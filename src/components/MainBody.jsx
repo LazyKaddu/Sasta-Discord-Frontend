@@ -53,7 +53,9 @@ const MainBody = ({ data, open }) => {
       {/* main */}
       <div className="h-[84vh] flex">
         <div className="flex flex-col w-[22vw] rounded-r-lg justify-evenly items-center min-h-fit bg-[#afb3e0]">
-          <div className="flex flex-col items-center justify-between gap-2">
+          <div className={(
+            allServers.length===0 && "w-[75%] "
+            ) + "flex flex-col items-center justify-between gap-2"}>
             <div className="w-full h-fit flex justify-center">
               {/* USER'S PROFILE */}
               <UserName
