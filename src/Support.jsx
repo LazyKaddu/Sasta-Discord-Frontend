@@ -33,13 +33,13 @@ const SupportSec = () => {
             </div>
           </div>
           <div className="flex gap-2 justify-start w-full h-[37%] px-5">
-            <div className="flex justify-around w-[45%] mt-2">
+            <div className="flex justify-around w-[35%] mt-2">
               <img
-                className="h-[95%] rounded-[23%] shadow-2xl shadow-fuchsia-500 hover:shadow-fuchsia-600 transition ease-in-out object-cover"
+                className="h-[75%] rounded-[23%] shadow-2xl shadow-fuchsia-500 hover:shadow-fuchsia-600 transition ease-in-out object-cover"
                 src="https://imgs.search.brave.com/gPZT1daGnqAjIB8yW5fG0cUuGqNhb3ZbYQqVY8Gy6S8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi85Lzk1L0lu/c3RhZ3JhbV9sb2dv/XzIwMjIuc3ZnLzIy/MHB4LUluc3RhZ3Jh/bV9sb2dvXzIwMjIu/c3ZnLnBuZw"
               />
               <img
-                className="h-[95%] rounded-[23%] object-cover shadow-2xl shadow-blue-400 hover:shadow-blue-500 transition ease-in-out"
+                className="h-[75%] rounded-[23%] object-cover shadow-2xl shadow-blue-400 hover:shadow-blue-500 transition ease-in-out"
                 src="https://imgs.search.brave.com/GpB5WQlesvec2MXDXDV3SmKb0pzSJzyH667WAzbxGcs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NhL0xpbmtlZElu/X2xvZ29faW5pdGlh/bHMucG5n"
               />
             </div>
