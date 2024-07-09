@@ -4,9 +4,15 @@ import Home from "./Home";
 import Chat from "./Chat";
 import About from "./About";
 import LoginSignup from "./Login-Signup";
-import './App.css';
+import Cookies from 'js-cookie';
 
 function App() {
+
+  const protectedRoute = () => {
+    const isUserLoggedIn = Cookies.get('UserId');
+    return isUserLoggedIn ? true : false;
+  }
+
   return (
     <Router>
       <Routes>

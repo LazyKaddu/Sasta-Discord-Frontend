@@ -12,7 +12,7 @@ const Chatbox = ({userId,channelId}) => {
     const submit = async (e)=>{
         e.preventDefault();
         if(input){
-          socket.emit('chat message', {userId, groupId: channelId, message});
+          socket.emit('chat message', {userId, channelId, message});
           setmessage('');
         }
 

@@ -4,13 +4,14 @@ import axios from "axios";
 import io from "../socket";
 
 const socket = io;
-
+ 
 const MessagesSec = ({ userId, channelId }) => {
   const [Data, setData] = useState([]);
   const [Error, setError] = useState("");
 
   useEffect(() => {
-    if (channelId) {
+    if (channelId!==null) {
+      console.log('inside useEffect')
       socket.emit("join group", { userId, channelId });
 
       socket.on("existing messages", (msgs) => {

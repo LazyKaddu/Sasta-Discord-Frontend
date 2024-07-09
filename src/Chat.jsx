@@ -11,7 +11,7 @@ const ChatSection = (userId,channelId,chanelName)=>{
     return(
         <>
         <Title title={chanelName}/>
-        <MessagesSec userId={userId} channelId={channelId}/>
+        {/* <MessagesSec userId={userId} channelId={channelId}/> */}
         <Chatbox userId={userId} channelId={channelId}/>
         </>
     )
@@ -20,9 +20,9 @@ const ChatSection = (userId,channelId,chanelName)=>{
 const Chat = () => {
   const userId = Cookies.get('userId');
   
-  return (
+  return (<>
     <MainBody data={<ChatSection userId={userId}/>} userName={"local host se lana hai"} open={false}/>
-  )
+  </>)
 }
 
 export default Chat
