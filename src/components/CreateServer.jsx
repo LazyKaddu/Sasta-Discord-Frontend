@@ -32,30 +32,28 @@ function CreateServerForm({
   };
 
   return (
-    <>
-      <div className="size-fit absolute top-[45vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <form
+    <form
           onSubmit={handleCreateServer}
           method="post"
           className="size-full flex flex-col items-center justify-center gap-5
-          bg-slate-900 MorphismShadow rounded-2xl text-white px-6 py-4"
+          bg-white rounded text-white px-6 py-4"
         >
           <h1 className="text-3xl font-semibold tracking-wide py-1 opacity-90">
             Create new server
           </h1>
           <div className="flex flex-col gap-1 items-stretch w-full">
-            <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
+            <label className="font-semibold text-sm tracking-wider opacity-95 text-green-600 uppercase">
               SERVER NAME{" "}
               {!serverName && <span className="text-red-500 text-md">*</span>}
             </label>
             <input
               onChange={(e) => setServerName(e.target.value)}
-              className="text-lg px-3 py-1 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
+              className="text-lg px-3 py-1 rounded text-green-500 bg-white border-2 outline-none border-green-300 tracking-wide"
               type="text" required
             />
           </div>
           <div className="flex flex-col gap-1 items-stretch w-full">
-            <label className="font-semibold text-sm tracking-wider opacity-95 text-zinc-400 uppercase">
+            <label className="font-semibold text-sm tracking-wider opacity-95 text-green-600 uppercase">
               MEMBERS LIMIT{" "}
               {!serverMembers && (
                 <span className="text-red-500 text-md">*</span>
@@ -63,7 +61,7 @@ function CreateServerForm({
             </label>
             <input
               onChange={(e) => setServerMembers(e.target.value)}
-              className="text-lg px-3 py-1 rounded text-white bg-[#1f1e1e] outline-none tracking-wide"
+              className="text-lg px-3 py-1 rounded text-green-500 bg-white border-2 outline-none border-green-300 tracking-wide"
               type="number" required
               min={2} max={10}
             />
@@ -85,8 +83,6 @@ function CreateServerForm({
             </button>
           </div>
         </form>
-      </div>
-    </>
   );
 }
 

@@ -88,7 +88,7 @@ const MainBody = ({ data, open }) => {
           </div>
         </div>
         {/* Right Side */}
-        <div className="flex flex-col w-[78vw] bg-[#afb3e0] rounded-l-lg overflow-hidden border-l-8 border-[#5865F2]">
+        <div className="flex flex-col w-[78vw] bg-[#afb3e0] rounded-l-lg overflow-y-scroll border-l-8 border-[#5865F2]">
           {data}
         </div>
       </div>
