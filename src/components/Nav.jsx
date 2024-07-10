@@ -63,7 +63,7 @@ const Nav = ({ styles }) => {
         />
         <Li
           data={"CONTACTUS"}
-          href={"/"}
+          href={"/contact-us"}
           icon={<HiOutlinePhone />}
           style={styles}
         />

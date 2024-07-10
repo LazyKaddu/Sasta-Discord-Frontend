@@ -4,8 +4,9 @@ import Home from "./Home";
 import Chat from "./Chat";
 import About from "./About";
 import LoginSignup from "./Login-Signup";
-import './App.css';
 import Support from './Support';
+import Contact from './Contact';
+import './App.css';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path='/about' element={<About/>}/>
         <Route path='/support' element={<Support/>}/>
-        {/*<Route path='/devcom' element={<devcom/>}/> */}
+        <Route path='/contact-us' element={<Contact/>}/>
       </Routes>
     </Router>
   );

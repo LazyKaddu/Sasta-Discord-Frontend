@@ -24,8 +24,8 @@ const UserName = ({ image, userName, styles, createServer, setCreateServer }) =>
           <HiOutlineMenu />
         </summary>
         <div
-          className="bg-[#c1c4de] w-[10vw] h-fit flex flex-col gap-2 py-2 px-2 border-2 
-        absolute left-[0%] top-[100%] text-md rounded-lg divide-y-2 divide-black"
+          className="bg-slate-200 w-[10vw] h-fit flex flex-col gap-2 py-2 px-2 border-2 
+        absolute left-[0%] top-[100%] text-md rounded-lg divide-y-2 divide-black z-[2]"
         >
           <button
             onClick={() => setCreateServer(!createServer)}

@@ -1,12 +1,9 @@
-.nick {
-    color: #bbb1eb;
-}
-
 .FocusOn{
     border: none;
     outline: none;
 }
 
+/* LOGIN/REGISTER FORM STYLES */
 .MorphismShadow{
     border: 2px solid rgb(10, 16, 32);
     transition: 0.3s ease-in-out;
@@ -16,6 +13,27 @@
     box-shadow: 0 0 50px rgb(7, 12, 24);
 }
 
+/* SIDEBAR STYLES */
 details > summary {
     list-style: none;
+}
+
+/* CONTACT PAGE STYES */
+#contact-input > span {
+    transition: 0.4s;
+}
+#contact-input input:focus ~ span,
+#contact-input textarea:focus ~ span{
+    color: #ea326f;
+    font-size: 14px;
+    transform: translateY(-20px);
+}
+
+#send-icon, #send-text {
+    transition: 0.25s;
+}
+
+#contact-send-button:hover #send-icon, 
+#contact-send-button:hover #send-text {
+    transform: translateY(-45px);
 }
