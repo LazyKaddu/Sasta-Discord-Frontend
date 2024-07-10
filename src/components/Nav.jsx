@@ -69,7 +69,7 @@ const Nav = ({ styles }) => {
         <Li data={"DEV COM"} href={"/"} icon={<HiSupport />} style={styles} />
         <Li
           data={"SUPPORT"}
-          href={"/"}
+          href={"/support"}
           icon={<HiOutlineSupport />}
           style={styles}
         />

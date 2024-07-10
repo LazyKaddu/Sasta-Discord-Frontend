@@ -8,7 +8,7 @@ import axios from "axios";
 
 const MainBody = ({ data, open }) => {
   const styles = {
-    width: "100%",
+    width: "35%",
   };
   const userName = Cookies.get("userName");
   const [error, setError] = useState(null);
@@ -53,23 +53,30 @@ const MainBody = ({ data, open }) => {
       {/* main */}
       <div className="h-[84vh] flex">
         <div className="flex flex-col w-[22vw] rounded-r-lg justify-evenly items-center min-h-fit bg-[#afb3e0]">
-          <div className="flex flex-col items-center justify-between gap-2">
-            <div className="w-full h-fit flex justify-center">
+          <div className="flex flex-col items-center justify-between gap-2 ">
+            <div className="w-full h-fit flex justify-start">
               {/* USER'S PROFILE */}
+              {open?<UserName
+                userName={userName}
+                createServer={createServer}
+                setCreateServer={setCreateServer}
+              />:
               <UserName
                 userName={userName}
                 createServer={createServer}
                 setCreateServer={setCreateServer}
-              />
+                styles={styles}
+              />}
+              
             </div>
-            <div className="flex justify-center gap-3 w-[85%] py-1">
+            <div className="flex justify-center gap-3 w-[100%] py-1">
               {/* SIDEBAR */}
               <div className={allServers.length === 0 ? "w-full" : "w-[20%]"}>
-                {allServers.length === 0 ? <Nav /> : <Nav styles={styles} />}
+                {(allServers.length === 0 && open) ? <Nav /> : <Nav styles={styles} />}
               </div>
               <div
                 className={
-                  allServers.length === 0
+                  allServers.length === 0 && open
                     ? "hidden"
                     : "w-[65%] p-1 overflow-y-auto rounded bg-slate-300 flex flex-col gap-1"
                 }
