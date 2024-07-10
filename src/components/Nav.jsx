@@ -14,6 +14,8 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 const Nav = ({ styles }) => {
+  console.log('no servers, styles in nav= ', styles)
+
   const [Error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -40,8 +42,7 @@ const Nav = ({ styles }) => {
       className="w-full h-fit bg-white rounded-md flex justify-center items-center overflow-hidden"
       style={styles}
     >
-      {Error}
-      <ul className="flex items-start flex-col py-4 px-2 gap-2 w-[100%] h-[100%] overflow-hidden">
+      <ul className="flex items-start flex-col py-3 px-2 gap-1 w-[100%] h-[100%] overflow-hidden">
         <Li
           data={"HOME"}
           href={"/home"}
@@ -62,7 +63,7 @@ const Nav = ({ styles }) => {
         />
         <Li
           data={"CONTACTUS"}
-          href={"/"}
+          href={"/contact-us"}
           icon={<HiOutlinePhone />}
           style={styles}
         />

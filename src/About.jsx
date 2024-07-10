@@ -30,7 +30,6 @@ const AboutSection = () => {
 }
 
 
-
 const About = () => {
   return (
     <MainBody data={<AboutSection/>} open={true}/>
