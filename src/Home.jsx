@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import MainBody from './components/MainBody';
 import CreateServerForm from './components/CreateServer';
+import JoinServer from './components/JoinServer';
 // import TD from './components/TD'
 
 
 const HomeElem = () => {
 
-  const [createServer, setcreateServer] = useState(false)
+  const [createServer, setcreateServer] = useState(false);
+  const [joinServer, setjoinServer] = useState(false)
+
+  const server = ()=>{
+    setcreateServer(!createServer);
+  }
 
   const join = ()=>{
-    setcreateServer(!createServer);
+    setjoinServer(!joinServer);
   }
 
   return (
@@ -24,13 +30,14 @@ const HomeElem = () => {
             </div>
 
             <div className="flex gap-4 ml-10 text-white justify-start items-center">
-              <button className='bg-transparent border-green-500 border-2 hover:bg-green-500 p-2 rounded transition-all' onClick={join}>Create Server</button>
+              <button className='bg-transparent border-green-500 border-2 hover:bg-green-500 p-2 rounded transition-all' onClick={server}>Create Server</button>
               <button className='bg-transparent rounded border-green-500 border-2 transition-all hover:bg-green-500 p-2'>Join Server</button>
             </div>
           </div>
 
-          {!createServer?<img className='w-[30vw] h-full border-2 border-black' src="" alt="" srcset="" />
-          :<CreateServerForm/>}
+          {!createServer?<p>hello</p>
+          // <TD/>
+          :<JoinServer/>}
         </div>
       </header>
       <main>

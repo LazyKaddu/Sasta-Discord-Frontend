@@ -21,6 +21,7 @@ const MainBody = ({ data, open }) => {
       .then((response) => {
         console.log("response from /server/all- ", response.data);
         setAllServers(response.data.allServers);
+        Cookies.set("allservers",response.data);
       })
       .catch((error) => {
         setError(error);
@@ -60,13 +61,9 @@ const MainBody = ({ data, open }) => {
               {/* USER'S PROFILE */}
               {open?<UserName
                 userName={userName}
-                createServer={createServer}
-                setCreateServer={setCreateServer}
               />:
               <UserName
                 userName={userName}
-                createServer={createServer}
-                setCreateServer={setCreateServer}
                 styles={styles}
               />}
               

@@ -37,3 +37,22 @@ details > summary {
 #contact-send-button:hover #send-text {
     transform: translateY(-45px);
 }
+
+/* scrollbar */
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: #5865F2;
+    cursor: pointer;
+    
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(85, 246, 171);
+    border-radius: 10px 0 10px 0;
+    cursor: grab;
+}
+
+/* 
+.Shadow-{col}{
+    box-shadow: 0 0 10px var(--col);
+} */
