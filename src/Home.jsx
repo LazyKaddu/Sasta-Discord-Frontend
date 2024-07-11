@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainBody from './components/MainBody';
 import CreateServerForm from './components/CreateServer';
 import JoinServer from './components/JoinServer';
 // import TD from './components/TD'
+
+const Hero = ({createServer,joinServer})=>{
+  if (createServer) {
+    return <CreateServerForm/>
+  } else if (joinServer) {
+    return <JoinServer/>
+  }
+  else{
+    return <p>hello</p>
+  }
+}
 
 
 const HomeElem = () => {
@@ -12,10 +23,16 @@ const HomeElem = () => {
 
   const server = ()=>{
     setcreateServer(!createServer);
+    if(joinServer){
+      setjoinServer(!joinServer)
+    }
   }
 
   const join = ()=>{
     setjoinServer(!joinServer);
+    if(createServer){
+      setcreateServer(!createServer)
+    }
   }
 
   return (
@@ -31,13 +48,10 @@ const HomeElem = () => {
 
             <div className="flex gap-4 ml-10 text-white justify-start items-center">
               <button className='bg-transparent border-green-500 border-2 hover:bg-green-500 p-2 rounded transition-all' onClick={server}>Create Server</button>
-              <button className='bg-transparent rounded border-green-500 border-2 transition-all hover:bg-green-500 p-2'>Join Server</button>
+              <button className='bg-transparent rounded border-green-500 border-2 transition-all hover:bg-green-500 p-2' onClick={join}>Join Server</button>
             </div>
           </div>
-
-          {!createServer?<p>hello</p>
-          // <TD/>
-          :<JoinServer/>}
+          <Hero createServer={createServer} joinServer={joinServer}/>
         </div>
       </header>
       <main>

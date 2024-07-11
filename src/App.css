@@ -41,7 +41,7 @@ details > summary {
 /* scrollbar */
 ::-webkit-scrollbar{
     width: 10px;
-    background-color: #5865F2;
+    background-color: transparent;
     cursor: pointer;
     
 }
