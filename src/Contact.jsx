@@ -3,39 +3,36 @@ import MainBody from "./components/MainBody";
 import { useNavigate } from "react-router-dom";
 
 const ContactSection = () => {
-
   const Navigate = useNavigate();
-  const [FullName, setFullName] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Message, setMessage] = useState('');
+  const [FullName, setFullName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Message, setMessage] = useState("");
 
-
-  const setname = (e)=>{
+  const setname = (e) => {
     setFullName(e.target.value);
-  }
-  const setemail = (e)=>{
+  };
+  const setemail = (e) => {
     setEmail(e.target.value);
-  }
-  const setmessage = (e)=>{
+  };
+  const setmessage = (e) => {
     setMessage(e.target.value);
-  }
+  };
 
-
-  const submitForm = (e)=>{
+  const submitForm = (e) => {
     e.preventDefault();
-    axios.post('./contacted',{
-      props:{
-        FullName,
-        Email,
-        Message,
-      }
-    }).then(
-      Navigate('/contact-us')
-    ).catch((e)=>{
-      console.log(e)
-    }
-    )
-  }
+    axios
+      .post("./contacted", {
+        props: {
+          FullName,
+          Email,
+          Message,
+        },
+      })
+      .then(Navigate("/contact-us"))
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <>
       <div className='size-full bg-[#5865F2] bg-[url("https://imgs.search.brave.com/zqC78uQ44KD1yV4FGJNlXrVIwe8ddJ-2_L5FYHZo4sQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/d2FsbHBhcGVyc2Fm/YXJpLmNvbS8yNi82/OC9DSzdKUVouanBn")] bg-cover grid place-items-center'>
@@ -57,9 +54,7 @@ const ContactSection = () => {
                   <i class="fas fa-home"></i>
                 </div>
                 <div className="px-3">
-                  <h3 className="text-2xl tracking-wide font-bold">
-                    Address
-                  </h3>
+                  <h3 className="text-2xl tracking-wide font-bold">Address</h3>
                   <p className="w-[65%] text-lg tracking-wide opacity-90 leading-7">
                     Premnagar, dehradun, Uttarakhand, 248007
                   </p>
@@ -68,12 +63,10 @@ const ContactSection = () => {
               {/* ROW 2 */}
               <div className="flex ">
                 <div className="size-16 text-3xl flex justify-center items-center text-center bg-white text-black rounded-[50%]">
-                  <i class="fas fa-phone"></i>
+                  <i className="fas fa-phone"></i>
                 </div>
                 <div className="px-3">
-                  <h3 className="text-2xl tracking-wide font-bold">
-                    Phone
-                  </h3>
+                  <h3 className="text-2xl tracking-wide font-bold">Phone</h3>
                   <p className="text-lg tracking-wide opacity-90">
                     745-485-3275
                   </p>
@@ -82,12 +75,10 @@ const ContactSection = () => {
               {/* ROW 3 */}
               <div className="flex ">
                 <div className="size-16 text-3xl flex justify-center items-center text-center bg-white text-black rounded-[50%]">
-                  <i class="fas fa-envelope"></i>
+                  <i className="fas fa-envelope"></i>
                 </div>
                 <div className="px-3">
-                  <h3 className="text-2xl tracking-wide font-bold">
-                    Email
-                  </h3>
+                  <h3 className="text-2xl tracking-wide font-bold">Email</h3>
                   <p className="text-lg tracking-wide opacity-90">
                     nikhil220705@gmail.com
                   </p>
@@ -104,35 +95,49 @@ const ContactSection = () => {
                 <div id="contact-input" className="w-full relative mt-2">
                   <input
                     className="w-full py-1 text-lg my-2 border-b-2 border-zinc-700 outline-none"
-                    type="text" value={FullName} onChange={setname}
+                    type="text"
+                    value={FullName}
+                    onChange={setname}
                   />
-                  {!FullName && <span
-                    id="contact-span"
-                    className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
-                  >
-                    Full Name
-                  </span>}
+                  {!FullName && (
+                    <span
+                      id="contact-span"
+                      className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
+                    >
+                      Full Name
+                    </span>
+                  )}
                 </div>
                 <div id="contact-input" className="w-full relative mt-2">
                   <input
                     className="w-full py-1 text-lg my-2 border-b-2 border-zinc-700 outline-none"
-                    type="email" value={Email} onChange={setemail}
+                    type="email"
+                    value={Email}
+                    onChange={setemail}
                   />
-                  {!Email && <span
-                    id="contact-span"
-                    className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
-                  >
-                    Email
-                  </span>}
+                  {!Email && (
+                    <span
+                      id="contact-span"
+                      className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
+                    >
+                      Email
+                    </span>
+                  )}
                 </div>
                 <div id="contact-input" className="w-full relative mt-2">
-                  <textarea className="resize-none w-full py-1 text-lg my-2 border-b-2 border-zinc-700 outline-none" value={Message} onChange={setmessage}></textarea>
-                  {!Message && <span
-                    id="contact-span"
-                    className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
-                  >
-                    Type your Message...
-                  </span>}
+                  <textarea
+                    className="resize-none w-full py-1 text-lg my-2 border-b-2 border-zinc-700 outline-none"
+                    value={Message}
+                    onChange={setmessage}
+                  ></textarea>
+                  {!Message && (
+                    <span
+                      id="contact-span"
+                      className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
+                    >
+                      Type your Message...
+                    </span>
+                  )}
                 </div>
                 <div>
                   <button
@@ -141,8 +146,12 @@ const ContactSection = () => {
                     text-white text-lg font-semibold tracking-wide mb-1"
                     type="submit"
                   >
-                    <div id="send-icon" className="h-full py-2"><i className="fas fa-paper-plane"></i></div>
-                    <div id="send-text" className="h-full py-2">Send</div>
+                    <div id="send-icon" className="h-full py-2">
+                      <i className="fas fa-paper-plane"></i>
+                    </div>
+                    <div id="send-text" className="h-full py-2">
+                      Send
+                    </div>
                   </button>
                 </div>
               </form>
