@@ -14,7 +14,6 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 const Nav = ({ styles }) => {
-  console.log('no servers, styles in nav= ', styles)
 
   const [Error, setError] = useState(null);
   const navigate = useNavigate();
@@ -22,6 +21,7 @@ const Nav = ({ styles }) => {
   const RemoveCookies = () => {
     Cookies.remove("userId");
     Cookies.remove("userName");
+    navigate("/");
   };
 
   const LogoutUser = (e) => {
@@ -29,8 +29,7 @@ const Nav = ({ styles }) => {
     axios
       .post("http://localhost:4000/api/user/logout")
       .then((response) => {
-        response.data.success ? RemoveCookies() : setError(response.data.error);
-        navigate("/");
+        console.log('logout response- ', response.data);
       })
       .catch((err) => {
         setError(err);

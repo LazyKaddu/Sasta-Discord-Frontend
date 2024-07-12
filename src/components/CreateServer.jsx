@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Cookies from "js-cookie";
 import axios from "axios";
 
 function CreateServerForm({
@@ -10,15 +9,13 @@ function CreateServerForm({
 }) {
   const [serverName, setServerName] = useState("");
   const [serverMembers, setServerMembers] = useState("");
-  const userId = Cookies.get('userId');
 
   const handleCreateServer = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:4000/api/server/create", {
         name: serverName,
-        maxMembers: serverMembers,
-        userId
+        maxMembers: serverMembers
       })
       .then((response) => {
         console.log("response from /server/create- ", response.data);

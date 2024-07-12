@@ -15,19 +15,25 @@ const Login = ({ isLogin, changeState }) => {
   const changePassword = (e) => {
     setPassword(e.target.value);
   };
-  const setCookies = data => {
-    Cookies.set("userId",data.user._id);
+  const setCookies = (data) => {
+    Cookies.set("userId", data.user._id);
     Cookies.set("userName", username);
     navigate("/home");
-  }
-  
+  };
+
   const SubmitChange = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/user/login", { username, password })
+      .post(
+        "http://localhost:4000/api/user/login",
+        { username, password },
+        { withCredentials: true }
+      )
       .then((response) => {
         console.log(response.data);
-        response.data.user? setCookies(response.data) : setError(response.data.message);
+        response.data.user
+          ? setCookies(response.data)
+          : setError(response.data.message);
       })
       .catch((error) => {
         setError(error);

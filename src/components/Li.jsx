@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Li = ({ data, href, icon, style }) => {
-  console.log('no servers, styles in li= ', style)
   const navigate = useNavigate();
   const Navigate = () => {
     navigate(href);
