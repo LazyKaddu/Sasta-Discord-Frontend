@@ -8,7 +8,7 @@ import axios from "axios";
 
 const MainBody = ({ data, open }) => {
   const styles = {
-    width: "100%",
+    width: "35%",
   };
   const userName = Cookies.get("userName");
   const [error, setError] = useState(null);
@@ -21,6 +21,7 @@ const MainBody = ({ data, open }) => {
       .then((response) => {
         console.log("response from /server/all- ", response.data);
         setAllServers(response.data.allServers);
+        Cookies.set("allservers",response.data);
       })
       .catch((error) => {
         setError(error);
@@ -58,11 +59,14 @@ const MainBody = ({ data, open }) => {
             ) + "flex flex-col items-center justify-between gap-2"}>
             <div className="w-full h-fit flex justify-center">
               {/* USER'S PROFILE */}
+              {open?<UserName
+                userName={userName}
+              />:
               <UserName
                 userName={userName}
-                createServer={createServer}
-                setCreateServer={setCreateServer}
-              />
+                styles={styles}
+              />}
+              
             </div>
             <div className="flex justify-center gap-3 w-full py-1">
               {/* SIDEBAR */}
@@ -71,7 +75,7 @@ const MainBody = ({ data, open }) => {
               </div>
               <div
                 className={
-                  allServers.length === 0
+                  allServers.length === 0 && open
                     ? "hidden"
                     : " p-1 rounded bg-slate-300 w-full"
                 }
@@ -85,7 +89,7 @@ const MainBody = ({ data, open }) => {
           </div>
         </div>
         {/* Right Side */}
-        <div className="flex flex-col w-[78vw] bg-[#afb3e0] rounded-l-lg overflow-hidden border-l-8 border-[#5865F2]">
+        <div className="flex flex-col w-[78vw] bg-[#5865F2] rounded-l-lg overflow-y-scroll border-l-8 border-[#5865F2]">
           {data}
         </div>
       </div>

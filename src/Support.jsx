@@ -35,7 +35,7 @@ const SupportSec = () => {
           <div className="flex gap-2 justify-start w-full h-[37%] px-5">
             <div className="flex justify-around w-[35%] mt-2">
               <img
-                className="h-[75%] rounded-[23%] shadow-2xl shadow-fuchsia-500 hover:shadow-fuchsia-600 transition ease-in-out object-cover"
+                className="h-[75%] rounded-[23%] Shadow-[#d946ef] transition ease-in-out object-cover"
                 src="https://imgs.search.brave.com/gPZT1daGnqAjIB8yW5fG0cUuGqNhb3ZbYQqVY8Gy6S8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi85Lzk1L0lu/c3RhZ3JhbV9sb2dv/XzIwMjIuc3ZnLzIy/MHB4LUluc3RhZ3Jh/bV9sb2dvXzIwMjIu/c3ZnLnBuZw"
               />
               <img

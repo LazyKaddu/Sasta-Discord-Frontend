@@ -27,7 +27,7 @@ const Signup = ({ isLogin, changeState }) => {
   const SubmitChange = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/user/register", { username, email, password })
+      .post("http://localhost:4000/api/user/register", { username:username, email:email, password:password })
       .then((response) => {
         console.log(response.data);
         response.data.success? setCookies(response.data) : setError(response.data.error);

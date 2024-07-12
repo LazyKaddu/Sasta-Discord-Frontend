@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import io from '../socket';
 
@@ -10,11 +10,15 @@ const Chatbox = ({userId,channelId}) => {
         setmessage(e.target.value);
     };
     const submit = async (e)=>{
-        e.preventDefault();
+      e.preventDefault();
+      useEffect(() => {
         if(input){
           socket.emit('chat message', {userId, channelId, message});
           setmessage('');
         }
+      }, [message])
+      
+        
 
     }
   return (

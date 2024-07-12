@@ -67,7 +67,12 @@ const Nav = ({ styles }) => {
           style={styles}
         />
         <Li data={"DEV COM"} href={"/"} icon={<HiSupport />} style={styles} />
-        <Li data={"SUPPORT"} href={"/support"} icon={<HiOutlineSupport />} style={styles} />
+        <Li
+          data={"SUPPORT"}
+          href={"/support"}
+          icon={<HiOutlineSupport />}
+          style={styles}
+        />
         <li
           className="list-none flex items-center justify-start gap-[2vw] text-lg bg-[#fff] 
       hover:bg-[#e5dff9] p-2 rounded-lg cursor-pointer w-full"
