@@ -33,7 +33,7 @@ function CreateServerForm({
           onSubmit={handleCreateServer}
           method="post"
           className="size-full flex flex-col items-center justify-center gap-5
-          bg-white rounded text-white px-6 py-4"
+          bg-zinc-700 rounded text-white px-6 py-4"
         >
           <h1 className="text-3xl font-semibold tracking-wide py-1 opacity-90">
             Create new server

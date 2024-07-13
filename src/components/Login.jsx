@@ -54,10 +54,10 @@ const Login = ({ isLogin, changeState }) => {
         method="post"
       >
         <div className="flex flex-col items-center">
-          <h1 className="text-3xl font-semibold tracking-wide py-2 mt-4 opacity-90">
+          <h1 className="text-3xl font-semibold tracking-wide py-2 mt-4 opacity-90 text-center">
             Welcome back!
           </h1>
-          <h3 className="font-light opacity-90 tracking-wide">
+          <h3 className="font-light opacity-90 tracking-wide text-center">
             We're so excited to see you again!
           </h3>
           <h3 className="font-semibold mt-2 text-red-500 text-center opacity-90 tracking-wide">
