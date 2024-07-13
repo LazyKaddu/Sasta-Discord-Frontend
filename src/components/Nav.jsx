@@ -19,8 +19,7 @@ const Nav = ({ styles }) => {
   const navigate = useNavigate();
 
   const RemoveCookies = () => {
-    Cookies.remove("userId");
-    Cookies.remove("userName");
+    Cookies.remove();
     navigate("/");
   };
 
@@ -30,6 +29,7 @@ const Nav = ({ styles }) => {
       .post("http://localhost:4000/api/user/logout")
       .then((response) => {
         console.log('logout response- ', response.data);
+        RemoveCookies()
       })
       .catch((err) => {
         setError(err);
