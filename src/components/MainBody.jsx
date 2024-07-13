@@ -20,15 +20,15 @@ const MainBody = ({ data, open }) => {
       .get("http://localhost:4000/api/server/all")
       .then((response) => {
         console.log("response from /server/all- ", response.data);
+        console.log("allservers in Mainbody.jsx-", allServers);
         setAllServers(response.data.allServers);
-        Cookies.set("allservers",response.data);
+        Cookies.set("allservers", response.data);
       })
       .catch((error) => {
         setError(error);
       });
   }, []);
 
-  console.log("allservers in Mainbody.jsx-", allServers);
 
   return (
     <div className="w-full h-screen bg-[#5865F2]">
