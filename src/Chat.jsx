@@ -10,7 +10,7 @@ const ChatSection = (userId,channelId,chanelName)=>{
     return(
         <>
         <Title title={chanelName}/>
-        <MessagesSec userId={userId} channelId={channelId}/>
+        {/* <MessagesSec userId={userId} channelId={channelId}/> */}
         <Chatbox userId={userId} channelId={channelId}/>
         </>
     )
