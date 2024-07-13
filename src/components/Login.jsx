@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+axios.defaults.withCredentials = true;
+
 const Login = ({ isLogin, changeState }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,14 +28,11 @@ const Login = ({ isLogin, changeState }) => {
     axios
       .post(
         "http://localhost:4000/api/user/login",
-        {
-          username,
-          password,
-          headers: {
-            Authorization: `Bearer ${Cookies.get("token")}`,
-          },
-        },
-        { withCredentials: true }
+        { username, password ,
+          headers:{
+            Authorization:`Bearer ${Cookies.get("token")}`},
+            withCredentials: true
+        }
       )
       .then((response) => {
         console.log(response.data);

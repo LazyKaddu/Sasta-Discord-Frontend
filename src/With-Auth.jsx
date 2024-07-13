@@ -28,7 +28,7 @@ const WithAuth = (Component) => {
     }, []);
 
     if (loading) {
-      return <div>Loading...</div>;
+      return <div className="w-full h-[100vh] flex justify-center items-center bg-blue-950 text-3xl text-white text-pretty">Please wait we are loading your page</div>;
     }
 
     if (!isLoggedIn) {

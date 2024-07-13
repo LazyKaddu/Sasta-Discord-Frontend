@@ -20,9 +20,8 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<LoginSignup/>}/>
-        {/* <Route path="/home" element={WithAuth(Home)} /> */}
-        <Route path="/home" element={<Home />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/chat" element={WithAuth(Chat)} />
         <Route path='/about' element={<About/>}/>
         <Route path='/support' element={<Support/>}/>
         <Route path='/contact-us' element={<Contact/>}/>
