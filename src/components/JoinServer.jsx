@@ -9,7 +9,7 @@ const JoinServer = () => {
   const [Search, setSearch] = useState("");
   const [Result, setResult] = useState([]);
   const [Servers, setServers] = useState(Cookies.get('allserver'));
-
+  console.log(Servers);
   const ChangeData = (e) => {
     setSearch(e.target.value)
   }

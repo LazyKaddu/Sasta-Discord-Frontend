@@ -32,14 +32,14 @@ const MainBody = ({ data, open }) => {
 
   return (
     <div className="w-full h-screen bg-[#5865F2]">
-      {createServer && (
+      {/* {createServer && (
         <CreateServerForm
           createServer={createServer}
           setCreateServer={setCreateServer}
           allServers={allServers}
           setAllServers={setAllServers}
         />
-      )}
+      )} */}
       {/* header */}
       <div className="w-[100vw] h-[9vh] flex justify-start">
         <div className="h-full w-[20vw] ">
