@@ -6,10 +6,26 @@ import { HiOutlineServer, HiOutlinePlus } from "react-icons/hi";
 
 axios.defaults.withCredentials = true;
 
-const ServerSection = ({ allServers }) => {
+const ServerSection = () => {
+
   const userId = Cookies.get("userId");
   const [Error, setError] = useState(null);
+  const [allServers, setAllServers] = useState([]);
+  const [createServer, setCreateServer] = useState(false);
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/server/all")
+      .then((response) => {
+        console.log("response from /server/all- ", response.data);
+        console.log("allservers in Mainbody.jsx-", allServers);
+        setAllServers(response.data.allServers);
+        Cookies.set("allservers", response.data);
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  }, []);
   useEffect(() => {
   
     axios

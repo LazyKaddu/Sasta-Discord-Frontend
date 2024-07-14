@@ -11,23 +11,7 @@ const MainBody = ({ data, open }) => {
     width: "35%",
   };
   const userName = Cookies.get("userName");
-  const [error, setError] = useState(null);
-  const [allServers, setAllServers] = useState([]);
-  const [createServer, setCreateServer] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/server/all")
-      .then((response) => {
-        console.log("response from /server/all- ", response.data);
-        console.log("allservers in Mainbody.jsx-", allServers);
-        setAllServers(response.data.allServers);
-        Cookies.set("allservers", response.data);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  }, []);
+  
 
 
   return (
@@ -58,21 +42,14 @@ const MainBody = ({ data, open }) => {
             allServers.length===0 && "w-[75%] "
             ) + "flex flex-col items-center justify-between gap-2"}>
             <div className="w-full h-fit flex justify-center">
-              {/* USER'S PROFILE */}
-              {open?<UserName
-                userName={userName}
-              />:
               <UserName
                 userName={userName}
                 styles={styles}
-              />}
-              
+              />
             </div>
-            <div className="flex justify-center gap-3 w-full py-1">
+            <div className="flex justify-center gap-1 w-full py-1">
               {/* SIDEBAR */}
-              <div className={allServers.length === 0 ? "w-full" : "min-w-fit"}>
-                {allServers.length === 0 ? <Nav styles={undefined} /> : <Nav styles={styles} />}
-              </div>
+                {allServers.length === 0 && open ? <Nav styles={null} /> : <Nav styles={styles} />}
               <div
                 className={
                   allServers.length === 0 && open
@@ -82,7 +59,7 @@ const MainBody = ({ data, open }) => {
               >
                 {/* CHANNEL SECTION */}
                 {allServers.length > 0 && (
-                  <ServerSection allServers={allServers} />
+                  <ServerSection/>
                 )}
               </div>
             </div>
