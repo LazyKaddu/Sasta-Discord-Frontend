@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import MainBody from "./components/MainBody";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
+
 
 const ContactSection = () => {
   const Navigate = useNavigate();
@@ -17,19 +22,29 @@ const ContactSection = () => {
   const setmessage = (e) => {
     setMessage(e.target.value);
   };
+  
+  const success = ()=> toast.success('send the message successfully!');
+  const error = ()=> toast.error('error occured message not sent!');
+
+  const reset = ()=>{
+    setEmail('');
+    setFullName('');
+    setMessage('');
+  }
 
   const submitForm = (e) => {
     e.preventDefault();
-    axios
-      .post("./contacted", {
-        props: {
-          FullName,
-          Email,
-          Message,
-        },
+    axios.post("http://localhost:4000/api/contacted/contact", {
+          name : FullName,
+          email : Email,
+          message : Message,
       })
-      .then(Navigate("/contact-us"))
+      .then(()=>{
+        success();
+        reset();
+      })
       .catch((e) => {
+        error();
         console.log(e);
       });
   };
@@ -159,6 +174,7 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+      <ToastContainer position="top-right"/>
     </>
   );
 };
