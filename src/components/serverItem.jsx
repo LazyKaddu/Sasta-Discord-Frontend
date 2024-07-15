@@ -1,30 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const ServerItem = ({ userId, server }) => {
+const ServerItem = ({ server }) => {
     const [joined, setjoined] = useState(false);
-
-    const changejoined = () => {
+    const success = ()=> toast.success("successfully joined the server!");
+    const error = ()=> toast.error("sorry an error occured!");
+    const changejoined = (e) => {
         setjoined(true)
-    }
-    useEffect(() => {
-        axios.get("./api/", {
-            params: {
-                id: server.id,
-                user: userId,
-            }
+        axios.post("http://localhost:4000/api/server/join", {
+            serverId: server._id,
+        }).then(()=>{
+            success();
         }).catch((e) => {
             console.log(e)
+            error();
         })
-    }, [joined])
+        console.log(e);
+    }
 
     return (
-        <div className='bg-slate-200 rounded my-2 flex justify-around items-center w-full aspect-auto-[1/10]'>
-            <p className=''>{server.name}</p>
-            <p>{server.members.length}</p>
-            {joined ?
-                <button className='border-none bg-green-500 w-[3vw] aspect-auto-[3/1]' onClick={changejoined}>join</button>
-                : <button className='border-none bg-gray-500 w-[3vw] aspect-auto-[3/1]' onClick={changejoined}>joined</button>
-            }
+        <div className='bg-slate-200 rounded my-2 flex justify-around items-center w-full h-[20%] '>
+            <p className='w-[40%]'>{server.name}</p>
+            <p>{server.members.length}/{server.maxMembers}</p>
+
+            <button className={joined ? "bg-gray-500 rounded w-[6vw] h-[2vw]" : "bg-green-500 rounded w-[6vw] h-[2vw]"} onClick={changejoined}>{!joined ? "join" : "joined"}</button>
+            <ToastContainer position='top-right'/>
         </div>
     )
 }

@@ -46,38 +46,36 @@ const Nav = ({ styles }) => {
           data={"HOME"}
           href={"/home"}
           icon={<HiOutlineHome />}
-          style={styles}
         />
         <Li
           data={"CHAT"}
           href={"/chat"}
           icon={<HiOutlineChat />}
-          style={styles}
+
         />
         <Li
           data={"ABOUTUS"}
           href={"/about"}
           icon={<HiOutlineInformationCircle />}
-          style={styles}
+
         />
         <Li
           data={"CONTACTUS"}
           href={"/contact-us"}
           icon={<HiOutlinePhone />}
-          style={styles}
+
         />
-        <Li data={"DEV COM"} href={"/"} icon={<HiSupport />} style={styles} />
+        <Li data={"DEV COM"} href={"/"} icon={<HiSupport />}/>
         <Li
           data={"SUPPORT"}
           href={"/support"}
           icon={<HiOutlineSupport />}
-          style={styles}
+
         />
         <li
           className="list-none flex items-center justify-start gap-[2vw] text-lg bg-[#fff] 
       hover:bg-[#e5dff9] p-2 rounded-lg cursor-pointer w-full"
           onClick={LogoutUser}
-          style={styles}
         >
           <span className="text-2xl bg-[#e5dff9] p-1 rounded-lg opacity-85">
             <HiOutlineLogout />

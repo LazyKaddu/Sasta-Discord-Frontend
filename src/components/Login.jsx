@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 axios.defaults.withCredentials = true;
 
@@ -17,6 +19,10 @@ const Login = ({ isLogin, changeState }) => {
   const changePassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const showError = ()=> toast.error('invalid crediantials!');
+  const showSuccess = ()=> toast.success('Logged in successfully!')
+
   const setCookies = (data) => {
     Cookies.set("userId", data.user._id);
     Cookies.set("userName", username);
@@ -35,12 +41,17 @@ const Login = ({ isLogin, changeState }) => {
         }
       )
       .then((response) => {
+        showSuccess();
+        setTimeout(() => {
+          console.log("hello")
+        }, 3000);
         console.log(response.data);
         response.data.user
           ? setCookies(response.data)
           : setError(response.data.message);
       })
       .catch((error) => {
+        showError();
         setError(error);
       });
   };
@@ -109,6 +120,7 @@ const Login = ({ isLogin, changeState }) => {
           )}
         </button>
       </form>
+      <ToastContainer position="top-right"/>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import MainBody from "./components/MainBody";
 import CreateServerForm from "./components/CreateServer";
 import JoinServer from "./components/JoinServer";
 // import TD from './components/TD';
-import Discord from './assets/Discord.glb';
+// import Discord from './assets/Discord.glb';
 
 const Hero = ({ createServer, joinServer }) => {
   if (createServer) {

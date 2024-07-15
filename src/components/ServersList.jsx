@@ -12,15 +12,15 @@ function ServersList({ server, idx }) {
         <HiOutlineServer />
       </div>
       <div className="w-[50%] grow">
-        <div className=" leading-7 font-semibold text-lg tracking-wide ">
+        <div className=" leading-7 font-semibold text-sm overflow-x-hidden tracking-wide ">
           <p className=" truncate">{server.name}</p>
         </div>
-        <div className=" text-sm opacity-85">
+        <div className=" text-xs opacity-85">
           members: {server.members.length}/{server.maxMembers}
         </div>
       </div>
       <div className="h-full">
-        <button className="h-full text-xl px-2">
+        <button className="h-full text-lg px-2">
           <HiOutlinePlus />
         </button>
       </div>

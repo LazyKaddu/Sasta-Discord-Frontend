@@ -52,6 +52,13 @@ details > summary {
     cursor: grab;
 }
 
+.Scrollbar::-webkit-scrollbar-thumb{
+    background-color: azure;
+    border-radius: 0 10px 10px 0;
+    cursor: grab;
+}
+
+
 /* 
 .Shadow-{col}{
     box-shadow: 0 0 10px var(--col);
