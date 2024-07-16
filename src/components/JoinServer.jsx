@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import ServerItem from './serverItem';
+import ServerItem from './ServerItem';
 
 
 
