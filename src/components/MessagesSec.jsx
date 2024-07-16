@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Message from "./Message";
-import axios from "axios";
 import io from "../socket";
 
 const socket = io;
  
-const MessagesSec = ({ userId, channelId }) => {
+const MessagesSec = ({ userId, serverId }) => {
   const [Data, setData] = useState([]);
   const [Error, setError] = useState("");
 
   // this UseEffect is forcing error on Backend
   
   useEffect(() => {
-    if (channelId!==null) {
+    if (serverId!==null) {
       console.log('inside useEffect')
-      socket.emit("join group", { userId, channelId });
+      socket.emit("join group", { userId, serverId });
 
       socket.on("existing messages", (msgs) => {
         setData(msgs);
@@ -27,11 +26,11 @@ const MessagesSec = ({ userId, channelId }) => {
     }
 
     return () => {
-      socket.emit("leave group", { userId, channelId });
+      socket.emit("leave group", { userId, serverId });
       socket.off("existing messages");
       socket.off("chat messages");
     };
-  }, [channelId, userId]);
+  }, [serverId, userId]);
 
   return (
     <div className="h-[70vh] w-[60vw] border-gray-950">
