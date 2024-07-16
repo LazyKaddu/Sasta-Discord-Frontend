@@ -95,7 +95,7 @@ const ContactSection = () => {
                 <div className="px-3">
                   <h3 className="text-2xl tracking-wide font-bold">Email</h3>
                   <p className="text-lg tracking-wide opacity-90">
-                    nikhil220705@gmail.com
+                    nikhilbhatt220705@gmail.com
                   </p>
                 </div>
               </div>
@@ -113,6 +113,7 @@ const ContactSection = () => {
                     type="text"
                     value={FullName}
                     onChange={setname}
+                    required
                   />
                   {!FullName && (
                     <span
@@ -129,6 +130,7 @@ const ContactSection = () => {
                     type="email"
                     value={Email}
                     onChange={setemail}
+                    required
                   />
                   {!Email && (
                     <span
@@ -144,6 +146,7 @@ const ContactSection = () => {
                     className="resize-none w-full py-1 text-lg my-2 border-b-2 border-zinc-700 outline-none"
                     value={Message}
                     onChange={setmessage}
+                    required
                   ></textarea>
                   {!Message && (
                     <span

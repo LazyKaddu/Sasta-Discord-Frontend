@@ -53,24 +53,21 @@ const Nav = ({ styles }) => {
           icon={<HiOutlineChat />}
 
         />
-        <Li
-          data={"ABOUTUS"}
-          href={"/about"}
-          icon={<HiOutlineInformationCircle />}
-
-        />
+        <Li data={"DEV COM"} href={"/dev-com"} icon={<HiSupport />}/>
         <Li
           data={"CONTACTUS"}
           href={"/contact-us"}
           icon={<HiOutlinePhone />}
-
         />
-        <Li data={"DEV COM"} href={"/"} icon={<HiSupport />}/>
+        <Li
+          data={"ABOUTUS"}
+          href={"/about"}
+          icon={<HiOutlineInformationCircle />}
+        />
         <Li
           data={"SUPPORT"}
           href={"/support"}
           icon={<HiOutlineSupport />}
-
         />
         <li
           className="list-none flex items-center justify-start gap-[2vw] text-lg bg-[#fff] 

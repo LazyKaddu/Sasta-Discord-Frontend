@@ -7,6 +7,7 @@ import LoginSignup from "./Login-Signup";
 import Support from './Support';
 import Contact from './Contact';
 import WithAuth from './With-Auth';
+import DevCom from './DevCom';
 import './App.css';
 
 function App() {
@@ -23,8 +24,9 @@ function App() {
         <Route path="/home" element={<Home/>}/>
         <Route path="/chat" element={WithAuth(Chat)} />
         <Route path='/about' element={<About/>}/>
-        <Route path='/support' element={<Support/>}/>
         <Route path='/contact-us' element={<Contact/>}/>
+        <Route path='/dev-com' element={<DevCom/>} />
+        <Route path='/support' element={<Support/>}/>
       </Routes>
     </Router>
   );
