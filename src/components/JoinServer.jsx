@@ -46,7 +46,7 @@ return (
       <input type="text" value={Search} className='outline-none border-2 rounded h-[2.5vw] p-2 border-green-600 w-[20vw]' placeholder='search here' onChange={ChangeData} />
     </div>
     <hr className='mt-2' />
-    <div className='overflow-y-scroll h-[30vh] mt-1 rounded '>
+    <div className='overflow-y-scroll h-[30vh] mt-1 rounded serversScrollbar'>
       {Result.map((item) => (
         <ServerItem server={item} userId={userid} />
       ))}</div>

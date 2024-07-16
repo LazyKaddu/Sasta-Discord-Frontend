@@ -66,7 +66,7 @@ const ContactSection = () => {
               {/* ROW 1 */}
               <div className="flex">
                 <div className="size-16 text-3xl flex justify-center items-center text-center bg-white text-black rounded-[50%]">
-                  <i class="fas fa-home"></i>
+                  <i className="fas fa-home"></i>
                 </div>
                 <div className="px-3">
                   <h3 className="text-2xl tracking-wide font-bold">Address</h3>

@@ -5,19 +5,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ServerItem = ({ server }) => {
     const [joined, setjoined] = useState(false);
-    const success = ()=> toast.success("successfully joined the server!");
-    const error = ()=> toast.error("sorry an error occured!");
+    const success = () => toast.success("successfully joined the server!");
+    const error = () => toast.error("sorry an error occured!");
     const changejoined = (e) => {
         setjoined(true)
-        axios.post("http://localhost:4000/api/server/join", {
-            serverId: server._id,
-        }).then(()=>{
-            success();
-        }).catch((e) => {
-            console.log(e)
-            error();
-        })
-        console.log(e);
+        if (!joined) {
+
+            axios.post("http://localhost:4000/api/server/join", {
+                serverId: server._id,
+            }).then(() => {
+                success();
+            }).catch((e) => {
+                console.log(e)
+                error();
+            })
+        }
     }
 
     return (
@@ -26,7 +28,7 @@ const ServerItem = ({ server }) => {
             <p>{server.members.length}/{server.maxMembers}</p>
 
             <button className={joined ? "bg-gray-500 rounded w-[6vw] h-[2vw]" : "bg-green-500 rounded w-[6vw] h-[2vw]"} onClick={changejoined}>{!joined ? "join" : "joined"}</button>
-            <ToastContainer position='top-right'/>
+            <ToastContainer position='top-right' />
         </div>
     )
 }

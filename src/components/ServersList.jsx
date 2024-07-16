@@ -1,9 +1,14 @@
 import React from "react";
 import { HiOutlineServer, HiOutlinePlus } from "react-icons/hi";
+import Cookies from 'js-cookie';
+
 
 function ServersList({ server, idx }) {
+  const setChannel = ()=>{
+    Cookies.set("currentServer", server)
+  }
   return (
-    <div
+    <div onClick={setChannel}
       key={idx}
       className="flex gap-2 rounded-sm justify-center items-center
       bg-slate-800 hover:bg-slate-700 h-fit w-full py-2 px-2 text-white "
