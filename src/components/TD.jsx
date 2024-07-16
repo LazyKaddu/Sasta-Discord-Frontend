@@ -14,13 +14,6 @@ const Model = ({url,scale,rotate})=>{
 }
 
 const TD = ({url,scale,rotate,movable}) => {
-    useEffect(() => {
-    //   first
-    
-      return () => {
-        // second
-      }
-    }, [])
     
   return (
     <Canvas style={{width:"30vw",height:"30vw",margin:"auto",cursor:"grab"}}>

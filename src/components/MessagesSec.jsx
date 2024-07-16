@@ -11,27 +11,27 @@ const MessagesSec = ({ userId, channelId }) => {
 
   // this UseEffect is forcing error on Backend
   
-  // useEffect(() => {
-  //   if (channelId!==null) {
-  //     console.log('inside useEffect')
-  //     socket.emit("join group", { userId, channelId });
+  useEffect(() => {
+    if (channelId!==null) {
+      console.log('inside useEffect')
+      socket.emit("join group", { userId, channelId });
 
-  //     socket.on("existing messages", (msgs) => {
-  //       setData(msgs);
-  //     });
-  //     socket.on("chat message", (msg) => {
-  //       setData([...Data, msg]);
-  //     });
-  //   } else {
-  //     setError("failed to connect");
-  //   }
+      socket.on("existing messages", (msgs) => {
+        setData(msgs);
+      });
+      socket.on("chat message", (msg) => {
+        setData([...Data, msg]);
+      });
+    } else {
+      setError("failed to connect");
+    }
 
-  //   return () => {
-  //     socket.emit("leave group", { userId, channelId });
-  //     socket.off("existing messages");
-  //     socket.off("chat messages");
-  //   };
-  // }, [channelId, userId]);
+    return () => {
+      socket.emit("leave group", { userId, channelId });
+      socket.off("existing messages");
+      socket.off("chat messages");
+    };
+  }, [channelId, userId]);
 
   return (
     <div className="h-[70vh] w-[60vw] border-gray-950">

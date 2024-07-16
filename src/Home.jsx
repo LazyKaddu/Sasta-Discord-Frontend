@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import MainBody from "./components/MainBody";
 import CreateServerForm from "./components/CreateServer";
 import JoinServer from "./components/JoinServer";
-// import TD from './components/TD'
+// import TD from './components/TD';
+// import Discord from './assets/Discord.glb';
 
 const Hero = ({ createServer, joinServer }) => {
   if (createServer) {
@@ -10,7 +11,8 @@ const Hero = ({ createServer, joinServer }) => {
   } else if (joinServer) {
     return <JoinServer />;
   } else {
-    return <p>hello</p>;
+    // return <TD url={Discord} scale={3} rotate={[0,0,Math.PI/2]} movable={true}/>;
+    return <>hello bro this is the 3d object</>
   }
 };
 
