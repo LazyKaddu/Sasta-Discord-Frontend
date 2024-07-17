@@ -9,7 +9,7 @@ const Li = ({ data, href, icon}) => {
   return (
     <li
       className="list-none flex items-center justify-start gap-[2vw] text-lg bg-[#fff] 
-      hover:bg-[#e5dff9] p-2 rounded-lg cursor-pointer w-full"
+      hover:bg-[#e5dff9] transition-all p-2 rounded-lg cursor-pointer w-full"
       onClick={Navigate}
     >
       <span className="w-fit text-2xl bg-[#e5dff9] p-1 rounded-lg opacity-85">

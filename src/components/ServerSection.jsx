@@ -3,6 +3,7 @@ import ServersList from "./ServersList";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { HiOutlineServer, HiOutlinePlus } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 
@@ -12,13 +13,19 @@ const ServerSection = () => {
   const [Error, setError] = useState(null);
   const [allServers, setAllServers] = useState([]);
   const [createServer, setCreateServer] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get("http://localhost:4000/api/server/all")
       .then((response) => {
         console.log("response from /server/all- ", response.data);
-        setAllServers(response.data.allServers);
+        if (response.data.allServers) {
+          setAllServers(response.data.allServers);
+        }
+        else{
+          navigate('/');
+        }
       })
       .catch((error) => {
         setError(error);
