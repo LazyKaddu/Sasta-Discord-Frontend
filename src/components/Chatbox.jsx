@@ -6,11 +6,11 @@ import Cookies from 'js-cookie';
 const socket = io;
 
 const Chatbox = ({userId,serverId}) => {
-
   const userName = Cookies.get("userName")
-    const [message, setmessage] = useState('');
-    const changeData = (e)=>{
-        setmessage(e.target.value);
+  const [message, setmessage] = useState('');
+  console.log(serverId);
+  const changeData = (e)=>{
+    setmessage(e.target.value);
     };
     const submit = (e)=>{
       e.preventDefault();

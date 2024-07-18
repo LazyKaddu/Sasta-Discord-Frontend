@@ -24,7 +24,7 @@ const Nav = ({ styles }) => {
   };
 
   const LogoutUser = (e) => {
-    e.preventDefault();
+
     axios
       .post("http://localhost:4000/api/user/logout")
       .then((response) => {

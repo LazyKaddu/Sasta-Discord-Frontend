@@ -3,9 +3,11 @@ import { HiOutlineServer, HiOutlinePlus } from "react-icons/hi";
 import Cookies from 'js-cookie';
 
 
-function ServersList({ server, idx }) {
+function ServersList({ server, idx, setcurrentserver }) {
   const setChannel = ()=>{
-    Cookies.set("currentServer", server)
+    Cookies.set("currentServerName", server.name);
+    Cookies.set("currentServerId",server._id);
+    setcurrentserver(server)
   }
   return (
     <div onClick={setChannel}

@@ -8,18 +8,19 @@ const MessagesSec = ({ userId, serverId }) => {
   const [Data, setData] = useState([]);
   const [Error, setError] = useState("");
 
-  // this UseEffect is forcing error on Backend
   
   useEffect(() => {
     if (serverId!==null) {
       console.log('inside useEffect')
       socket.emit("join group", { userId, serverId });
 
-      socket.on("existing messages", (msgs) => {
-        setData(msgs);
+      socket.on("existing messages", (message) => {
+        console.log(message);
+        setData(message);
       });
       socket.on("chat message", (msg) => {
         setData([...Data, msg]);
+        console.log(Array.isArray(Data));
       });
     } else {
       setError("failed to connect");
@@ -39,8 +40,8 @@ const MessagesSec = ({ userId, serverId }) => {
           <Message
             key={index}
             sender={item.sender}
-            message={item.message}
-            time={item.time}
+            message={item.content}
+            time={item.createdAt}
           />
         );
       })}

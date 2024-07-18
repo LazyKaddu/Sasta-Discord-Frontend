@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 
-const ServerSection = () => {
+const ServerSection = ({ setcurrentserver }) => {
 
   const userId = Cookies.get("userId");
   const [Error, setError] = useState(null);
@@ -56,7 +56,7 @@ const ServerSection = () => {
   return (
     <div className="max-h-[51.5vh] w-[75%] flex flex-col items-center gap-1 overflow-y-scroll rounded Scrollbar">
       {allServers.map((server, idx) => {
-        return <ServersList server={server} key={idx} />;
+        return <ServersList server={server} setcurrentserver={setcurrentserver} key={idx} />;
       })}
       {/* {Error && <p className="text-red-700">{Error}</p>} */}
     </div>
