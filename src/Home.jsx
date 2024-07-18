@@ -5,14 +5,14 @@ import JoinServer from "./components/JoinServer";
 import Message from "./components/Message";
 // import TD from './components/TD';
 
-const Hero = ({ createServer, joinServer }) => {
+const Hero = ({ createServer, server, joinServer, join }) => {
   if (createServer) {
-    return <CreateServerForm />;
+    return <CreateServerForm server={server}/>;
   } else if (joinServer) {
-    return <JoinServer />;
+    return <JoinServer join={join}/>;
   } else {
-    // return <TD url={"./assets/Discord.glb"} scale={3} rotate={[0,0,Math.PI/2]} movable={true}/>;
-    return <Message sender = {"Aashish"} message={"hello bro how is this looking i think its looking fanttic"}/>
+    // return <TD url={Discord} scale={3} rotate={[0,0,Math.PI/2]} movable={true}/>;
+    return <div className="w-full">hello bro this is the 3d object</div>;
   }
 };
 
@@ -38,7 +38,7 @@ const HomeElem = () => {
     <>
       <header className="flex flex-col justify-center gap-4 items-start bg-[#5865F2] min-h-[83vh] w-full">
         {/* <TD/> */}
-        <div className="flex justify-evenly items-center">
+        <div className="w-full flex justify-evenly items-center">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col Hero items-start justify-center gap-4 text-white w-[40vw] ml-10">
               <h1 className="text-6xl font-bold font-serif">
@@ -51,20 +51,22 @@ const HomeElem = () => {
 
             <div className="flex gap-4 ml-10 text-white justify-start items-center">
               <button
-                className="bg-transparent border-green-500 border-2 hover:bg-green-500 p-2 rounded transition-all"
+                className="bg-white text-indigo-600 border-white
+                hover:bg-indigo-500 hover:text-white border-2 p-2 rounded transition-all font-semibold"
                 onClick={server}
               >
                 Create Server
               </button>
               <button
-                className="bg-transparent rounded border-green-500 border-2 transition-all hover:bg-green-500 p-2"
+                className="bg-white text-indigo-600 border-white
+                hover:bg-indigo-500 hover:text-white border-2 p-2 rounded transition-all font-semibold"
                 onClick={join}
               >
                 Join Server
               </button>
             </div>
           </div>
-          <Hero createServer={createServer} joinServer={joinServer} />
+          <Hero createServer={createServer} server={server} joinServer={joinServer} join={join} />
         </div>
       </header>
       <main>

@@ -8,7 +8,7 @@ import SastaFooter from "./SastaFooter";
 
 const MainBody = ({ data, open }) => {
   const styles = {
-    width: "35%",
+    width: "30%",
 
   };
   const userName = Cookies.get("userName");
