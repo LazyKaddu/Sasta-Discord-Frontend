@@ -19,7 +19,7 @@ const ChatSection = ({currentserver})=>{
 const Chat = () => {
   const [currentserver, setcurrentserver] = useState({})
   return (<>
-    <MainBody data={<ChatSection currentserver={currentserver}/>} setcurrentserver = {setcurrentserver} open={false}/>
+    <MainBody data={<ChatSection currentserver={currentserver}/>} currentserver={currentserver} setcurrentserver = {setcurrentserver} open={false}/>
   </>)
 }
 
