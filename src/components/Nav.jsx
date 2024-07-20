@@ -14,7 +14,6 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 const Nav = ({ styles }) => {
-
   const [Error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -28,8 +27,8 @@ const Nav = ({ styles }) => {
     axios
       .post("http://localhost:4000/api/user/logout")
       .then((response) => {
-        console.log('logout response- ', response.data);
-        RemoveCookies()
+        console.log("logout response- ", response.data);
+        RemoveCookies();
       })
       .catch((err) => {
         setError(err);
@@ -41,33 +40,42 @@ const Nav = ({ styles }) => {
       className="w-full h-fit bg-white rounded-md flex justify-center items-center overflow-hidden"
       style={styles}
     >
-      <ul className="flex items-start flex-col py-3 px-2 gap-1 w-[100%] h-[100%] overflow-hidden">
+      <ul className="flex items-start flex-col py-3 px-1 gap-1 w-[100%] h-[100%] overflow-hidden">
         <Li
           data={"HOME"}
           href={"/home"}
           icon={<HiOutlineHome />}
+          style={styles}
         />
         <Li
           data={"CHAT"}
           href={"/chat"}
           icon={<HiOutlineChat />}
-
+          style={styles}
         />
-        <Li data={"DEV COM"} href={"/dev-com"} icon={<HiSupport />}/>
+        <Li
+          data={"DEV COM"}
+          href={"/dev-com"}
+          icon={<HiSupport />}
+          style={styles}
+        />
         <Li
           data={"CONTACTUS"}
           href={"/contact-us"}
           icon={<HiOutlinePhone />}
+          style={styles}
         />
         <Li
           data={"ABOUTUS"}
           href={"/about"}
           icon={<HiOutlineInformationCircle />}
+          style={styles}
         />
         <Li
           data={"SUPPORT"}
           href={"/support"}
           icon={<HiOutlineSupport />}
+          style={styles}
         />
         <li
           className="list-none flex items-center justify-start gap-[2vw] text-lg bg-[#fff] 
