@@ -18,7 +18,8 @@ const Nav = ({ styles }) => {
   const navigate = useNavigate();
 
   const RemoveCookies = () => {
-    Cookies.remove();
+    Cookies.remove('userId');
+    Cookies.remove('userName');
     navigate("/");
   };
 
