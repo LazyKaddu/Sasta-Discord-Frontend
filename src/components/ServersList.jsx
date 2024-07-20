@@ -10,7 +10,7 @@ function ServersList({ server, idx, setcurrentserver, currentserver }) {
   const setServer = ()=>{
     Cookies.set("currentServerName", server.name);
     Cookies.set("currentServerId",server._id);
-    socket.emit('leave group',{ currentserver,userId});
+    socket.emit('leave group',{userId:userId,serverId:currentserver});
     setcurrentserver(server)
   }
   return (

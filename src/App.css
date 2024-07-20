@@ -72,6 +72,10 @@ details > summary {
     cursor: grab;
 }
 
+.messageScrollbar::-webkit-scrollbar-thumb{
+    background-color: transparent;
+}
+
 /* 
 .Shadow-{col}{
     box-shadow: 0 0 10px var(--col);

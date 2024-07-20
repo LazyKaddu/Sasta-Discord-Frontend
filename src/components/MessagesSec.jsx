@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Message from "./Message";
 import io from "../socket";
 
@@ -7,25 +7,32 @@ const socket = io;
 const MessagesSec = ({ userId, serverId }) => {
   const [Data, setData] = useState([]);
   const [Error, setError] = useState("");
+  const scrollDiv = useRef(null);
+  const [Height, setHeight] = useState(0);
 
+  useEffect(() => {
+    if (serverId !== null) {
+      socket.emit("join group", { userId, serverId });
+      socket.on("existing message", (message) => {
+        setData(message);
 
-  if (serverId !== null) {
-    console.log('inside useEffect')
-    socket.emit("join group", { userId, serverId });
+      })
 
-    socket.on("existing messages", (message) => {
-      console.log(message);
-      setData(message);
-    });
+    } else {
+      setError("failed to connect");
+    }
+  }, [serverId, userId])
 
-  } else {
-    setError("failed to connect");
+  if (scrollDiv.current) {
+    scrollDiv.current.scrollTop = Height;
+
   }
-
 
   socket.on("chat message", (msg) => {
     setData([...Data, msg]);
-    console.log(Data);
+    if (scrollDiv.current) {
+      scrollDiv.current.scrollTop = Height;
+    }
   });
   console.log('hello')
   socket.on('leave group', ({ }) => {
@@ -34,7 +41,7 @@ const MessagesSec = ({ userId, serverId }) => {
 
 
   return (
-    <div className="h-[70vh] w-[60vw] overflow-y-scroll border-gray-950">
+    <div ref={scrollDiv} className="h-[70vh] w-full overflow-y-scroll messageScrollbar border-gray-950">
       {Data.map((item, index) => {
         return (
           <Message
@@ -42,6 +49,8 @@ const MessagesSec = ({ userId, serverId }) => {
             sender={item.sender}
             message={item.content}
             time={item.createdAt}
+            scrollDiv={scrollDiv}
+            setHeight={setHeight}
           />
         );
       })}

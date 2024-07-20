@@ -31,26 +31,6 @@ const ServerSection = ({ setcurrentserver, currentserver }) => {
         setError(error);
       });
   }, []);
-  useEffect(() => {
-  
-    axios
-      .get("./api/channels", {
-        withCredentials:true,
-        params: {
-          userId: userId,
-        },
-        headers:{
-          Authorization:`Bearer ${Cookies.get("token")}`},
-      })
-      .then((response) => {
-        //setChats(response.data)
-      })
-      .catch((error) => {
-        setError(error);
-      });
-
-  }, [])
-  
 
 
   return (
@@ -58,7 +38,7 @@ const ServerSection = ({ setcurrentserver, currentserver }) => {
       {allServers.map((server, idx) => {
         return <ServersList server={server} currentserver={currentserver} setcurrentserver={setcurrentserver} key={idx} />;
       })}
-      {/* {Error && <p className="text-red-700">{Error}</p>} */}
+      {Error && <p className="text-red-700">{Error}</p>}
     </div>
   );
 };
