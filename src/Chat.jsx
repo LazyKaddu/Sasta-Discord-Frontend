@@ -5,22 +5,21 @@ import Chatbox from './components/Chatbox';
 import Title from './components/Title';
 import Cookies from 'js-cookie';
 
-const ChatSection = ()=>{
-    const [Server, setServer] = useState('');
+const ChatSection = ({currentserver})=>{
     const userId = Cookies.get('userId');
     return(
         <>
-        <Title title={Server.name}/>
-        <MessagesSec userId={userId} channelId={Server._id}/>
-        <Chatbox userId={userId} channelId={Server._id}/>
+        <Title title={currentserver.name}/>
+        <MessagesSec userId={userId} serverId={currentserver._id}/>
+        <Chatbox userId={userId} serverId={currentserver._id}/>
         </>
     )
 }
 
 const Chat = () => {
-  
+  const [currentserver, setcurrentserver] = useState({})
   return (<>
-    <MainBody data={<ChatSection/>} open={false}/>
+    <MainBody data={<ChatSection currentserver={currentserver}/>} currentserver={currentserver} setcurrentserver = {setcurrentserver} open={false}/>
   </>)
 }
 

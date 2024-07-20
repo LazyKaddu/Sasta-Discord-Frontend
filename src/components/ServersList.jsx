@@ -2,13 +2,19 @@ import React from "react";
 import { HiOutlineServer, HiOutlinePlus } from "react-icons/hi";
 import Cookies from 'js-cookie';
 
+import io from '../socket';
+const socket = io;
 
-function ServersList({ server, idx }) {
-  const setChannel = ()=>{
-    Cookies.set("currentServer", server)
+function ServersList({ server, idx, setcurrentserver, currentserver }) {
+  const userId = Cookies.get('userId');
+  const setServer = ()=>{
+    Cookies.set("currentServerName", server.name);
+    Cookies.set("currentServerId",server._id);
+    socket.emit('leave group',{ currentserver,userId});
+    setcurrentserver(server)
   }
   return (
-    <div onClick={setChannel}
+    <div onClick={setServer}
       key={idx}
       className="flex gap-2 rounded-sm justify-center items-center
       bg-slate-800 hover:bg-slate-700 h-fit w-full py-2 px-2 text-white "

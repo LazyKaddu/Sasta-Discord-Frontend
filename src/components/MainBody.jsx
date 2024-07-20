@@ -6,13 +6,13 @@ import CreateServerForm from "./CreateServer";
 import Cookies from "js-cookie";
 import SastaFooter from "./SastaFooter";
 
-const MainBody = ({ data, open }) => {
+const MainBody = ({ data, open, setcurrentserver, currentserver }) => {
   const styles = {
     width: "30%",
 
   };
   const userName = Cookies.get("userName");
-
+  
 
 
   return (
@@ -42,7 +42,7 @@ const MainBody = ({ data, open }) => {
               {/* SIDEBAR */}
               {open ? <Nav /> : <Nav styles={styles} />}
               {/* CHANNEL SECTION */}
-              {!open && <ServerSection/>}
+              {!open && <ServerSection setcurrentserver = {setcurrentserver} currentserver={currentserver}/>}
             </div>
           </div>
         </div>

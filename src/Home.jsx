@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import MainBody from "./components/MainBody";
 import CreateServerForm from "./components/CreateServer";
 import JoinServer from "./components/JoinServer";
+import Message from "./components/Message";
+// import TD from './components/TD';
 import TD from './components/TD';
 import Discord from './assets/Discord.glb';
 
