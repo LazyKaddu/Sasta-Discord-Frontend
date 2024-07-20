@@ -4,7 +4,7 @@ import CreateServerForm from "./components/CreateServer";
 import JoinServer from "./components/JoinServer";
 import Message from "./components/Message";
 // import TD from './components/TD';
-import TD from './components/TD';
+// import TD from './components/TD';
 import Discord from './assets/Discord.glb';
 
 const Hero = ({ createServer, server, joinServer, join }) => {
@@ -13,7 +13,8 @@ const Hero = ({ createServer, server, joinServer, join }) => {
   } else if (joinServer) {
     return <JoinServer join={join}/>;
   } else {
-    return <TD url={Discord} scale={1.8} rotate={[0, Math.PI/2, 0]} movable={true} color="white"/>;
+    // return <TD url={Discord} scale={1.8} rotate={[0, Math.PI/2, 0]} movable={true} color="white"/>;
+    return <p>{"this is a 3d component ;-]"}</p>
   }
 };
 
@@ -39,7 +40,7 @@ const HomeElem = () => {
     <>
       <header className="flex flex-col justify-center gap-4 items-start bg-[#5865F2] min-h-[83vh] w-full z-0">
         {/* <TD/> */}
-        <div className="w-full flex justify-evenly items-center">
+        <div className="w-full flex justify-between items-center">
           <div className="h-[90%] flex flex-col justify-center gap-6">
             <div className="flex flex-col Hero items-start justify-center gap-5 text-white w-[40vw] ml-10">
               <h1 className="text-6xl font-bold font-serif">
