@@ -40,7 +40,7 @@ const MainBody = ({ data, open, setcurrentserver, currentserver }) => {
             </div>
             <div className="flex justify-center gap-1 w-full py-2">
               {/* SIDEBAR */}
-              {open ? <Nav styles={null} /> : <Nav styles={styles} />}
+              {open ? <Nav /> : <Nav styles={styles} />}
               {/* CHANNEL SECTION */}
               {!open && <ServerSection setcurrentserver = {setcurrentserver} currentserver={currentserver}/>}
             </div>
