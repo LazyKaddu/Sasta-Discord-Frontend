@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Message = ({sender,message,time}) => {
+const Message = ({sender,message,time,scrollDiv,setHeight}) => {
+  setHeight(scrollDiv.current.scrollHeight);
   return (
     <div className='flex flex-col bg-[rgba(241,245,249,0.95)] rounded-t-2xl rounded-br-2xl px-4 pt-2 mt-2 max-w-[40vw] w-[auto] h-[auto]'>
       <p className='text-blue-500 font-mono text-md font-medium'>{sender}</p>
