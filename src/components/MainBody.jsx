@@ -47,7 +47,7 @@ const MainBody = ({ data, open, setcurrentserver, currentserver }) => {
           </div>
         </div>
         {/* Right Side */}
-        <div className="flex flex-col w-[78vw] bg-[#5865F2] rounded-l-lg overflow-y-scroll">
+        <div className="flex flex-col w-[78vw] mx-1 bg-[#5865F2] rounded overflow-y-scroll">
           {data}
         </div>
       </div>

@@ -9,6 +9,7 @@ const MessagesSec = ({ userId, serverId }) => {
   const [Error, setError] = useState("");
   const scrollDiv = useRef(null);
   const [Height, setHeight] = useState(0);
+  
 
   useEffect(() => {
     if (serverId !== null) {
@@ -34,14 +35,14 @@ const MessagesSec = ({ userId, serverId }) => {
       scrollDiv.current.scrollTop = Height;
     }
   });
-  console.log('hello')
+ 
   socket.on('leave group', ({ }) => {
     setData([]);
   })
 
 
   return (
-    <div ref={scrollDiv} className="h-[70vh] w-full overflow-y-scroll messageScrollbar border-gray-950">
+    <div ref={scrollDiv} className="flex flex-col h-[70vh] w-full overflow-y-scroll p-4 messageScrollbar border-gray-950">
       {Data.map((item, index) => {
         return (
           <Message

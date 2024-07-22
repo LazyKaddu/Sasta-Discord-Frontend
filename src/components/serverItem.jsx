@@ -27,11 +27,27 @@ const ServerItem = ({ server }) => {
       });
   }, []);
 
+
+  const deleteServer = ()=>{
+    axios
+    .post("http://localhost:4000/api/server/delete",{
+      serverId: server._id,
+    })
+    .then(()=>{
+      success('deleted server Successfully!')
+    })
+    .catch((e)=>{
+      console.log('error in leaving group '+ e);
+      error("an error occured while deleting")
+    })
+  };
+
   const changejoined = () => {
     if (server.owner._id === userId) {
       error("Owner cannot leave the Server!");
       return;
     }
+
     const joinRequest = () => {
       axios
         .post("http://localhost:4000/api/server/join", {
@@ -84,29 +100,32 @@ const ServerItem = ({ server }) => {
       <div className="w-[20%]">
         {members}/{server.maxMembers}
       </div>
-      <button
-        className={
-          (server.members.length >= server.maxMembers
-            ? !joined
-              ? "bg-red-500"
-              : "bg-gray-500"
-            : joined
-            ? "bg-gray-500"
-            : "bg-green-500") + " rounded text-white w-[6vw] h-[2vw]"
-        }
-        onClick={changejoined}
-      >
-        {server.members.length >= server.maxMembers
-          ? !joined
-            ? "Full"
-            : "joined"
-          : !joined
-          ? "join"
-          : "joined"}
-      </button>
-      {/* TO DO - Owner can delete his own server here */}
+      
+      {/* TO DO - Owner can delete his own server here  - done bro*/}
       {server.owner._id === userId
-        && ':'}
+        ?<button onClick={deleteServer} className="text-white bg-red-700 rounded border-0 w-[6vw] h-[2vw]">
+          Delete
+          </button>
+          :<button
+          className={
+            (server.members.length >= server.maxMembers
+              ? !joined
+                ? "bg-red-500"
+                : "bg-gray-500"
+              : joined
+              ? "bg-gray-500"
+              : "bg-green-500") + " rounded text-white w-[6vw] h-[2vw]"
+          }
+          onClick={changejoined}
+        >
+          {server.members.length >= server.maxMembers
+            ? !joined
+              ? "Full"
+              : "joined"
+            : !joined
+            ? "join"
+            : "joined"}
+        </button>}
       <ToastContainer position="top-right" />
     </div>
   );
