@@ -5,8 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
-
-
 const ContactSection = () => {
   const Navigate = useNavigate();
   const [FullName, setFullName] = useState("");
@@ -22,29 +20,34 @@ const ContactSection = () => {
   const setmessage = (e) => {
     setMessage(e.target.value);
   };
-  
-  const success = ()=> toast.success('send the message successfully!');
-  const error = ()=> toast.error('error occured message not sent!');
 
-  const reset = ()=>{
-    setEmail('');
-    setFullName('');
-    setMessage('');
-  }
+  const success = (msg) => toast.success(msg);
+  const error = (msg) => toast.error(msg);
+
+  const reset = () => {
+    setEmail("");
+    setFullName("");
+    setMessage("");
+  };
 
   const submitForm = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/api/contacted/contact", {
-          name : FullName,
-          email : Email,
-          message : Message,
+    if (!Email.includes('@', '.com')) {
+      error("Email must include '@' and '.com'");
+      return
+    }
+    axios
+      .post("http://localhost:4000/api/contacted/contact", {
+        name: FullName,
+        email: Email,
+        message: Message,
       })
-      .then(()=>{
-        success();
+      .then(() => {
+        success("send the message successfully!");
         reset();
       })
       .catch((e) => {
-        error();
+        error("error occured message not sent!");
         console.log(e);
       });
   };
@@ -114,32 +117,30 @@ const ContactSection = () => {
                     value={FullName}
                     onChange={setname}
                     required
+                    spellCheck="false"
                   />
-                  {!FullName && (
-                    <span
-                      id="contact-span"
-                      className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
-                    >
-                      Full Name
-                    </span>
-                  )}
+                  <span
+                    id="contact-span"
+                    className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
+                  >
+                    Full Name
+                  </span>
                 </div>
                 <div id="contact-input" className="w-full relative mt-2">
                   <input
                     className="w-full py-1 text-lg my-2 border-b-2 border-zinc-700 outline-none"
-                    type="email"
+                    type="text"
                     value={Email}
                     onChange={setemail}
                     required
+                    spellCheck="false"
                   />
-                  {!Email && (
-                    <span
-                      id="contact-span"
-                      className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
-                    >
-                      Email
-                    </span>
-                  )}
+                  <span
+                    id="contact-span"
+                    className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
+                  >
+                    Email
+                  </span>
                 </div>
                 <div id="contact-input" className="w-full relative mt-2">
                   <textarea
@@ -147,15 +148,14 @@ const ContactSection = () => {
                     value={Message}
                     onChange={setmessage}
                     required
+                    spellCheck="false"
                   ></textarea>
-                  {!Message && (
-                    <span
-                      id="contact-span"
-                      className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
-                    >
-                      Type your Message...
-                    </span>
-                  )}
+                  <span
+                    id="contact-span"
+                    className="absolute left-0 py-1 text-lg my-2 text-zinc-600 pointer-events-none"
+                  >
+                    Type your Message...
+                  </span>
                 </div>
                 <div>
                   <button
@@ -177,7 +177,7 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-right"/>
+      <ToastContainer position="top-right" />
     </>
   );
 };

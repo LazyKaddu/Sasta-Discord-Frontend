@@ -19,12 +19,19 @@ details > summary {
 }
 
 /* CONTACT PAGE STYES */
-#contact-input > span {
+#contact-input > #contact-span {
     transition: 0.4s;
 }
-#contact-input input:focus ~ span,
-#contact-input textarea:focus ~ span{
+#contact-input input:focus ~ #contact-span,
+#contact-input textarea:focus ~ #contact-span{
     color: #ea326f;
+    font-size: 14px;
+    transform: translateY(-20px);
+}
+
+#contact-input input:valid ~ #contact-span,
+#contact-input textarea:valid ~ #contact-span{
+    color: rgb(37, 184, 37);
     font-size: 14px;
     transform: translateY(-20px);
 }
